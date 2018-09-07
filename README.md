@@ -10,7 +10,7 @@
 8.	Allows a customer to update billing information  
 
 # To Clone this repository to your laptop you will need to download GIT 
-[GIT SCM] (https://git-scm.com/ "Gits Homepage") 
+[GIT SCM](https://git-scm.com/) 
 
 # After Downloading GIT 
 Once you've downloaded GIT open the GIT Terminal. <br> 
