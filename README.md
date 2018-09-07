@@ -14,4 +14,12 @@
 
 # After Downloading GIT 
 Once you've downloaded GIT open the GIT Terminal. <br> 
-Type `git clone https://github.com/hattricklogic/wsc_website.git wsc_website`
+Type `git clone https://github.com/hattricklogic/wsc_website.git wsc_website`<br> 
+This adds all the code from the repository to you laptop. 
+
+# Making Changes 
+once you added and tested the code you can you can push out changes for everyone to see <br> 
+`git add . `
+`git commit -m "tells us what you did"`
+`git push` <br> 
+This will update the reposition for the project for so everyone has can see and review your code changes
