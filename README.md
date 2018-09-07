@@ -13,5 +13,5 @@
 [GIT SCM] (https://git-scm.com/ "Gits Homepage") 
 
 # After Downloading GIT 
-Once you've downloaded GIT open the GIT Terminal. 
+Once you've downloaded GIT open the GIT Terminal. <br> 
 Type `git clone https://github.com/hattricklogic/wsc_website.git wsc_website`
