@@ -1,6 +1,6 @@
 # Senior Project 
 
-1.	The website requires a database and user interface for web
+1.	The website requires a database and user interface for the web
 2.	CRUD operations for orders
 3.	CRUD operations for catalog information 
 4.	CRUD operations for user information 
