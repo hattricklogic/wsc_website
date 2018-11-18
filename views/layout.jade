@@ -1,0 +1,37 @@
+//- 
+  The is the base html page. All other pages will 
+  inherit/extend the page. This design allows the developer 
+  to create a outline of the main page that each module will 
+  have and only create the elements that are different from the layout. 
+   
+ // 
+
+doctype html
+html(lang='en')
+  head
+    meta(charset='UTF-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1.0')
+    meta(http-equiv='X-UA-Compatible', content='ie=edge')
+    title=title
+    link(rel='stylesheet', href='/styles.css')
+  body
+    section#top-nav
+      nav
+        ul
+          li
+            a(href='/') Home
+          li
+            a(href='/aboutus') About Us
+          li
+            a(href='/products') Products
+          li
+            a(href='/services') Services
+          li
+            a(href='/login') Login 
+          li
+            a(href='/register') Register 
+    script(src="./jquery.min.js",type="text/javascript")
+    script(src="./client/api.js",type="text/javascript") 
+    block content
+    
+    

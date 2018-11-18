@@ -1,0 +1,113 @@
+html{
+    background-color: #42a5f5; 
+  }
+  
+.banner h1 {
+    padding-top: 3.5%;
+    color: white; 
+  }
+  .left-content{
+    width: 75%; 
+  }
+  
+  .left-content aside{
+    text-align: center;
+  }
+   /* other colors #0077c2 Dark blue */
+  .banner{
+    background: #80d6ff;
+    height: auto;
+    margin: 6% -16% 5% 11%;
+    border-radius: 11px; 
+    font-size: 32px; 
+  }
+  
+  .banner p{
+    font-size: 20px;
+    font-family: cursive;
+    margin: 30px  0 60px 0;
+    text-align:initial;
+    width: 81%; 
+    position: relative;
+    left: 10%;
+    
+  }
+  
+  .info-btn{
+    height: 50px;
+    width: 120px;
+    border-radius: 11px;
+    border-color: #42a5f5;
+    background: #42a5f5;
+    color: white;
+    position: relative;
+    right: -42%;
+    top: -10px;
+    font-size: large;
+    box-shadow: 3px 3px 3px black; 
+  }
+  #top-nav {
+    background: #0077c2;
+    height: 80px; 
+    text-align: center;
+  }
+  
+  #top-nav ul {
+    display: inline-flex;
+    width: 50%;
+  
+  }
+  
+  #top-nav ul li {
+    display: inline-flex; 
+    list-style-type: none;
+    margin-right: 5%;
+    
+  }
+  
+  a {
+   color: white;
+   font-size: 20px;
+  }
+
+  label {
+    font-size: 22px; 
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+    color: white; 
+    margin-right: 1%;
+  }
+  legend{
+    margin-bottom: 3%; 
+    font-size: 22px;
+  }
+  form {
+    text-align: center; 
+  }
+  input[type=text], 
+  input[type=password], input[type=email] {
+      height: 36px;
+      width: 25%;
+      border-radius: 5px;
+      margin: 0 0 1% 0; 
+  }
+  button[type=submit]{
+    height: 50px;
+    width: 120px;
+    border-radius: 11px;
+    border-color: #42a5f5;
+    background: #c3e6cb;
+    color: #155724;
+    position: relative;
+    right: -25%;
+    top: 0px;
+    font-size: large;
+    box-shadow: 3px 3px 7px black;
+  }
+  .form-container{
+    height: auto; 
+    width: auto; 
+    border: 1px solid;
+    margin: 3% 0 0 0;
+  }
+  
+  

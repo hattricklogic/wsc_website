@@ -1,0 +1,40 @@
+//-
+    Author: Rob Thomas 
+    Created: Nov 12, 2018 
+    Module: William Special Group - User Registration
+
+    Git Version Control is used for version tracking
+    Github: https://github.com/hattricklogic/wsc_website
+    
+    Description: this module contains the form registration page information 
+    Users will login to the module and their login information 
+    will be stored in the database.
+
+
+extends ../layout 
+block content 
+    title=title
+    h1 Sign Up 
+    section.register-user
+    form(method="post")
+        fieldset.form-container
+            legend New Member Registration:
+            
+            label(for='firstName')  First Name:
+            input(id='fname' type='text', name='firstName', value='rob')
+            br
+            label(for='lastName')  Last Name: 
+            input(id='lname' type='text', name='lastName', value='thomas')
+            br
+            label(for='email')  Email/Uid: 
+            input(id='email' type='email', name='email', value='email@email.com')
+            br
+            label(for='pasword')  Password: 
+            input(id='password' type='password', name='password', value='password')
+            br
+            button(type='submit', id='register-btn') Register me 
+
+
+      
+
+    

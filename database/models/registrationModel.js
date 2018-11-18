@@ -1,0 +1,36 @@
+import mongoose from 'mongoose';
+import bcrypt from 'bcrypt-nodejs';
+
+var schemaOptions = {
+  collection: "users"
+};
+
+var userSchema = new mongoose.Schema({
+  fname: { type: String, required: true, minlength: 26 },
+  lname: { type: String, required: true, minlength: 26 },
+  email: { type: String, required: true },
+  password: { type: String, required: true },
+  roles: [String],
+  contact: {
+    phone: String,
+    email: String
+  },
+  address: {
+    lines: [String],
+    city: String,
+    state: String,
+    zip: Number
+  }
+}, schemaOptions);
+
+// Runs validation before saving a user
+userSchema.pre('save', function(next) {
+    this.fname = this.fname.toLowerCase();
+    this.lname = this.lname.toLowerCase();bc
+    this.email = this.email.toLowerCase();
+    const unsafePassword = this.password;
+    this.password = bcrypt.hashSync(unsafePassword); // Will encrypt the user's password
+    next();
+});
+
+export default mongoose.model('users', userSchema);

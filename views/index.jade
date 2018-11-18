@@ -1,0 +1,20 @@
+//- 
+  This module is the code that is repeated on each web page. 
+  We are using Jade http://jade-lang.com/ templating engine 
+  that allows for rapid prototyping of html pages 
+  The code below is the home page 
+ // 
+
+extends layout
+block content
+    title = title
+    section.left-content
+      aside.banner
+        h1 New WSC APP
+        p
+          | Williams Specialty Company (WSC) is a small print and engraving organization.
+          br
+          |           Request a quote,  Browse our Product List or Login for Membershps and Discouts.
+          br
+          |           Requesting a printing or engraving job is easy.
+        button.info-btn  Learn more 
