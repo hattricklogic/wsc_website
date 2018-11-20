@@ -16,7 +16,7 @@ $("#register-btn ").click(function (event) {
             data: JSON.stringify(registerData),
             contentType : "application/json"
         }).done(function () {
-            console.log("User Registered In");
+            console.log("User Logged In");
         }); 
     }); 
 

@@ -1,7 +1,7 @@
 import mongoose from"mongoose";
 import registerModel from "../../database/models/registrationModel";
 
-const url = "";
+const url = ""; // add you database connection string here 
 const connect = mongoose.connect(url, { useNewUrlParser: true }, error => {
         if (error) {
             console.log('Unable to connect to database');
@@ -10,7 +10,6 @@ const connect = mongoose.connect(url, { useNewUrlParser: true }, error => {
             console.log('Connected to MongoDB!');
         }
     });
-// console.log('registration model ' +registerModel); 
 
 export default {
     connection: connect, 

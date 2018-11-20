@@ -24,10 +24,8 @@ var userSchema = new mongoose.Schema({
 
 // Runs validation before saving a user
 userSchema.pre('save', function(next) {
-    // this.fname = this.fname.toLowerCase();
-    // this.lname = this.lname.toLowerCase();
-    // this.email = this.email.toLowerCase();
 
+    this.email = this.email.toLowerCase();
     const unsafePassword = this.password;
     this.password = bcrypt.hashSync(unsafePassword); // Will encrypt the user's password
     next();
