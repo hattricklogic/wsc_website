@@ -6,9 +6,8 @@ var schemaOptions = {
 };
 
 var userSchema = new mongoose.Schema({
-  fname: { type: String, required: true, minlength: 26 },
-  lname: { type: String, required: true, minlength: 26 },
-  email: { type: String, required: true },
+  fname: { type: String, required: true, minlength: 3 },
+  lname: { type: String, required: true, minlength: 4 },
   password: { type: String, required: true },
   roles: [String],
   contact: {
@@ -25,9 +24,10 @@ var userSchema = new mongoose.Schema({
 
 // Runs validation before saving a user
 userSchema.pre('save', function(next) {
-    this.fname = this.fname.toLowerCase();
-    this.lname = this.lname.toLowerCase();bc
-    this.email = this.email.toLowerCase();
+    // this.fname = this.fname.toLowerCase();
+    // this.lname = this.lname.toLowerCase();
+    // this.email = this.email.toLowerCase();
+
     const unsafePassword = this.password;
     this.password = bcrypt.hashSync(unsafePassword); // Will encrypt the user's password
     next();

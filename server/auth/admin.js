@@ -1,25 +1,49 @@
-import { Router } from 'express'
-// import passport from 'passport'
-import register from '../api/register.js'
+import { StringUtil } from '../utilities/string-util';
+import Register from '../../database/config/wscDB';
 
-const router = Router(); 
+// User Register
+export function index(req, res) {
+     
+    const validation = validateIndex(req.body);
+    if (!validation.isValid) {
+        return res.status(400).json({ message: validation.message });
+    }
 
-// When a Users request the Login Page Display the view for the Login
-router.route('/login')
-    .get((req, res) => {  
-        res.render("auth/login", {title:"Login Page"})
-    })
-    .post((req, res) => {
-        return res.render("index");
+    const user = new Register({
+        fname: req.body.fname,
+        lname: req.body.lname,
+        email: req.body.first,
+        password: req.body.password        
     });
-    
-// When a Users request the Registration Page Display the view for the Registration
-router.route('/register')
-    .get((req, res) => {
-        res.render("auth/register", {title:"Registration Page"})
-    })
-    .post((req, res, next) => { 
-        return res.render("catalog/products"); 
-    })
+    user.save(error => {
+        if (error) {
+            // Mongoose Error Code 11000 means validation failure (username taken)
+            if (error.code === 11000) {
+                return res.status(403).json({ message: 'Username is already taken' });
+            }
+            return res.status(500).json();
+        }
+        return res.status(201).json();
+    });
+}
 
-export default router
+function validateIndex(body) {
+    let errors = '';
+    if (StringUtil.isEmpty(body.username)) {
+        errors += 'Username is required. ';
+    }
+    if (StringUtil.isEmpty(body.password)) {
+        errors += 'Password is required. ';
+    }
+    if (StringUtil.isEmpty(body.first)) {
+        errors += 'First name is required. ';
+    }
+    if (StringUtil.isEmpty(body.last)) {
+        errors += 'Last name is required. ';
+    }
+
+    return {
+        isValid: StringUtil.isEmpty(errors),
+        message: errors
+    }
+}

@@ -1,9 +1,7 @@
 import express from 'express'
 import bodyparser from 'body-parser'
-import auth from '../server/auth/admin'
-// import passport from 'passport'
-
-
+import register from '../server/api/register'
+import login from '../server/api/login'
 
 const app = express()
 
@@ -14,12 +12,11 @@ app.use(express.static("./public"));
 app.use(express.static("./node_modules/jquery/dist"));
 app.use(bodyparser.urlencoded({extended : true }));
 app.use(bodyparser.json());
-app.use(auth); 
+app.use(register);
+app.use(login);
 app.use(require('express-session')({
     secret: 'my secret', resave: false, saveUninitialized: false
 }));
-// app.use(passport.initialize());
-// app.use(passport.session());
 
 app.get('/', (req, res) => {
     res.render("index", {title:"Devry Project 2018"})

@@ -5,11 +5,11 @@ $(function () {
 
 $("#register-btn ").click(function (event) {
     
-        registerData.fname = $('#fname').val()
-        registerData.lname =  $('#lname').val();
+        registerData.firstName = $('#fname').val()
+        registerData.lastName =  $('#lname').val();
         registerData.email = $('#email').val();
         registerData.password = $('#password').val();
-        // console.log(registerData); 
+
         $.ajax({
             type: "POST",
             url: "/register",
