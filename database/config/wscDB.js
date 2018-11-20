@@ -1,7 +1,7 @@
 import mongoose from"mongoose";
 import registerModel from "../../database/models/registrationModel";
 
-const url = "mongodb://localhost:27017/WSC_DB";
+const url = "";
 const connect = mongoose.connect(url, { useNewUrlParser: true }, error => {
         if (error) {
             console.log('Unable to connect to database');
