@@ -1,4 +1,3 @@
-import { StringUtil } from '../utilities/string-util';
 import Register from '../../database/config/wscDB';
 
 // User Register
