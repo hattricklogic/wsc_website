@@ -9,7 +9,7 @@ router.route('/register')
         res.render("auth/register", {title:"Registration Page"})
     })
     .post((req, res, next) => { 
-        console.log(req.body);
+
         const user = new Register({
             fname: req.body.firstName,
             lname: req.body.lastName,

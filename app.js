@@ -1,7 +1,7 @@
 import express from 'express'
 import bodyparser from 'body-parser'
-import register from '../server/api/register'
-import login from '../server/api/login'
+import register from './server/api/register'
+import login from './server/api/login'
 
 const app = express()
 
