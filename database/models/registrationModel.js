@@ -9,10 +9,10 @@ var userSchema = new mongoose.Schema({
   fname: { type: String, required: true, minlength: 3 },
   lname: { type: String, required: true, minlength: 4 },
   password: { type: String, required: true },
+  email : { type: String, required: true},
   roles: [String],
   contact: {
-    phone: String,
-    email: String
+    phone: String
   },
   address: {
     lines: [String],
