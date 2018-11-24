@@ -9,17 +9,33 @@ router.route('/register')
         res.render("auth/register", {title:"Registration Page"})
     })
     .post((req, res, next) => { 
-
-        const user = new Register({
-            fname: req.body.firstName,
-            lname: req.body.lastName,
-            email: req.body.email,
-            password: req.body.password        
-        });
-        user.save()
-        .then(() => res.redirect('/products'))
-        .catch(next);
+            console.log(req.body);
+            
+        Register.findOne({ email: req.body.email }, (error, user) => {
+            console.log(user);
+            if (error){
+                return console.log("Could not find userId", req.body.uname );
+            }
+            if (user) {
+    
+                const msg = 'Email Already Exist!'
+                return res.render('auth/register', { errors: msg}); 
+            } 
+            if (!user) {
+                const user = new Register({
+                    fname: req.body.firstName,
+                    lname: req.body.lastName,
+                    password: req.body.password,
+                    email: req.body.email
+                            
+                    });
+                user.save()
+                .then(() => res.redirect('/products'))
+                .catch(next);
+            }
+        });  // end findOne()
         db.close;
-    })
-export default router
+        
+    });
 
+export default router

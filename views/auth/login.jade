@@ -11,17 +11,20 @@ extends ../layout
 block content
     title=title
     h1 Member Login 
-    section.register-user
+    section.login-user
+    if errors 
+        section(id='alert')=errors
     form(method="post")
         fieldset.form-container
             legend Enter Your Login Information:
-            
+            section(id='demo')
             label(for='UserName')  Username:
-            input(id='username', type='text', name='userName', value='rob')
+            input(id='userName', type='text', name='userName', value='email@email.com', required)
             br
             label(for='Password')  Password: 
-            input(id='password', type='password', name='password', value='password')
+            input(id='password', type='password', name='password', value='password', required)
             br
+            span(id="errors")
             button(id='login-btn', type='submit') Login 
 
 

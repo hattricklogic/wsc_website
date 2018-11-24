@@ -1,5 +1,6 @@
 html{
-    background-color: #42a5f5; 
+    /* background-color: #42a5f5;  */
+    background: #fff;
   }
   
 .banner h1 {
@@ -109,5 +110,43 @@ html{
     border: 1px solid;
     margin: 3% 0 0 0;
   }
+
+  #alert{
+    width: 100%; 
+    background: lightcoral; 
+    border-radius: 6px;
+    color: white; 
+    font-size: 20px;
+    padding: 22px 0 22px 0;
+    text-align: center;
+  }
+section#products{
+  text-align: center 
+}
+
+#products img {
+    width: 200px; 
+    height: 200px;
+    margin: 5% 0 0 0;
+    border-radius: 5px; 
+    /* box-shadow: 5px 5px 5px; */
+    text-align: center;
+  }
+
+  #products{
+    list-style: none;
+  }
+#product-section{
+  width: 20%; 
+  /* border: 1px solid; */
+  float: left;
+}
+#product-info {
+    height: 66px;
+    /* border: 2px #0077c2 inset; */
+    margin: 14px;
+    text-align: center;
+    /* box-shadow: 5px 5px 5px; */
+}
   
   

@@ -13,21 +13,23 @@ block content
     title=title
     h1 Sign Up 
     section.register-user
+    if errors 
+        section(id='alert')=errors
     form(method="post")
         fieldset.form-container
             legend New Member Registration:
             
             label(for='firstName')  First Name:
-            input(id='fname' type='text', name='firstName', value='rob')
+            input(id='fname' type='text', name='firstName', value='rob', required)
             br
             label(for='lastName')  Last Name: 
-            input(id='lname' type='text', name='lastName', value='thomas')
+            input(id='lname' type='text', name='lastName', value='thomas', required)
             br
             label(for='email')  Email/Uid: 
-            input(id='email' type='email', name='email', value='email@email.com')
+            input(id='email' type='email', name='email', value='email@email.com', required)
             br
             label(for='pasword')  Password: 
-            input(id='password' type='password', name='password', value='password')
+            input(id='password' type='password', name='password', value='password', required)
             br
             button(type='submit', id='register-btn') Register me 
 
