@@ -26,9 +26,15 @@ router.route('/register')
                     fname: req.body.firstName,
                     lname: req.body.lastName,
                     password: req.body.password,
-                    email: req.body.email
-                            
-                    });
+                    email: req.body.email,
+                    contact : { phone: req.body.phone},
+                    address: {
+                        line: req.body.address,
+                        city: req.body.city,
+                        state: req.body.state,
+                        zip: req.body.zip
+                    }
+                 });
                 user.save()
                 .then(() => res.redirect('/products'))
                 .catch(next);

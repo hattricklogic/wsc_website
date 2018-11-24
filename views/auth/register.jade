@@ -11,26 +11,90 @@
 extends ../layout 
 block content 
     title=title
-    h1 Sign Up 
+    h1 New Member Registration Form
     section.register-user
     if errors 
         section(id='alert')=errors
     form(method="post")
-        fieldset.form-container
-            legend New Member Registration:
-            
-            label(for='firstName')  First Name:
-            input(id='fname' type='text', name='firstName', value='rob', required)
-            br
-            label(for='lastName')  Last Name: 
-            input(id='lname' type='text', name='lastName', value='thomas', required)
-            br
-            label(for='email')  Email/Uid: 
-            input(id='email' type='email', name='email', value='email@email.com', required)
-            br
+        section(class='form-container')
+            hr
+            label(for='firstName') First Name:
+            input(id='fname' type='text', name='firstName', required)
+           
+            label(for='lastName') Last Name: 
+            input(id='lname' type='text', name='lastName', required)
+           
+            label(for='email') Email: 
+            input(id='email' type='email', name='email', required)
+           
             label(for='pasword')  Password: 
-            input(id='password' type='password', name='password', value='password', required)
-            br
+            input(id='password' type='password', name='password' required)
+         
+            label(for='contact')  Phone: 
+            input(id='contact' type='tel', name='contact')
+           
+            label(for='Address')  Address: 
+            input(id='address' type='text', name='address')
+          
+            label(for='City')  City: 
+            input(id='city' type='text', name='city')
+          
+            label(for='State')  State: 
+            select(id='state', name='state')
+                option AL
+                option AK
+                option AZ
+                option AR
+                option CA
+                option CO
+                option CT
+                option DE
+                option FL
+                option GA
+                option HI
+                option ID
+                option IL
+                option IN
+                option IA
+                option KS
+                option KY
+                option LA
+                option ME
+                option MD
+                option MA
+                option MI
+                option MN
+                option MS
+                option MO
+                option MT
+                option NE
+                option NV
+                option NH
+                option NJ
+                option NM
+                option NY
+                option NC
+                option ND
+                option OH
+                option OK
+                option OR
+                option PA
+                option RI
+                option SC
+                option SD
+                option TN
+                option TX
+                option UT
+                option VT
+                option VA
+                option WA
+                option WV
+                option WI
+                option WY
+            label(for='zip')  Zip: 
+            input(id='zip' type='number', name='zip')
+
+            label(for='submit')
             button(type='submit', id='register-btn') Register me 
 
 

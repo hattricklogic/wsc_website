@@ -12,7 +12,7 @@ var userSchema = new mongoose.Schema({
   email : { type: String, required: true},
   roles: [String],
   contact: {
-    phone: String
+    phone: Number
   },
   address: {
     lines: [String],
