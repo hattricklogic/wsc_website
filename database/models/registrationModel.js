@@ -30,7 +30,7 @@ userSchema.statics.passwordMatches = function(password, hash) {
 // Runs validation before saving a user
 userSchema.pre('save', function(next) {
 
-    // this.email = this.email.toLowerCase();
+    this.email = this.email.toLowerCase();
     const unsafePassword = this.password;
     this.password = bcrypt.hashSync(unsafePassword); // Will encrypt the user's password
     next();
