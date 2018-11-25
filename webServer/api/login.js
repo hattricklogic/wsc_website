@@ -1,3 +1,16 @@
+/*
+Author: Rob Thomas 
+Created: Nov 22, 2018 
+Module: Server-side API  
+
+Description: This is a server side api for login. 
+             the user id and password is checked against 
+             the registered user account. if the user is 
+             found they are logged in and rerouted to the 
+             products page. 
+
+*/ 
+
 import express from 'express';
 import db from '../../database/config/wscDB';
 
@@ -41,41 +54,3 @@ router.route('/login')
 
 export default router
 
-
-
- // find the users email in the database 
-    //   const email = User.findByEmail(req.body.uname)
-    //   console.log("fond email", email);
-    // User.findOne({ username: req.body.uname }, (error, user) => {
-
-        // if (error){
-        //     return console.log("Could not find userId", req.body.uname );
-        // }
-        // console.log(userInfo.username, userInfo.id);
-    
-        // if (user){
-
-            // const passwordsMatch = User.passwordMatches(req.body.password, user.password);
-            // console.log(passwordsMatch)
-        //     if (!passwordsMatch) {
-
-        //         const userData = getUser(user);
-        //         console.log(userData);
-        //         db.close;
-        //         return res.status(201).json(); 
-        //     }
-        // }
-        // next();
-    // }); 
-
-    // function getUser(req){
-
-//     User.findOne({ username: req.body.uname }, (error, user) => {
-
-//         if (error){
-//             console.log(error);
-//         }
-//         const userInfo = { username: user.email, password : user.password }
-//         return userInfo
-//     }).catch(error)    
-// }

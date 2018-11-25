@@ -1,3 +1,15 @@
+/*
+Author: Rob Thomas 
+Created: Nov 22, 2018 
+Module: Client-side API  
+
+Description: This is a client side api used to create  
+             and update the product list for the site.
+             This will allow user to add items to a cart, 
+             essentially staging items for purchasing later.  
+*/ 
+
+
 
 $(function () {
     var plaque = ["Plaque.jpg"]

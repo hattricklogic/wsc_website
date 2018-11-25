@@ -1,3 +1,16 @@
+/*
+Author: Rob Thomas 
+Created: Nov 22, 2018 
+Module: Server-side API  
+
+Description: This is a server side api for user registration. 
+             user data is captured from the request 
+             and validated against both server and client side 
+             valiation logic before adding the user to the database 
+              
+
+*/ 
+
 import express from 'express';
 import db from '../../database/config/wscDB';
 
