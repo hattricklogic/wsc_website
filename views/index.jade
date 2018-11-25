@@ -15,11 +15,13 @@ block content
     title = title
     section.left-content
       aside.banner
-        h1 New WSC APP
+        h1(id='h1') Welcome to Williams Specialty Company
         p
           | Williams Specialty Company (WSC) is a small print and engraving organization.
           br
-          |           Request a quote,  Browse our Product List or Login for Membershps and Discouts.
           br
-          |           Requesting a printing or engraving job is easy.
-        button.info-btn  Learn more 
+          |           Request a quote, #[a(href='/products') Browse our Product List] or  #[a(href='/login') Login] for Membershps and Discouts.
+          br
+          br
+          |           Requesting a printing or engraving jobs are easy. #[a(href='/register') Try us!]
+        //- button.info-btn  Learn more 

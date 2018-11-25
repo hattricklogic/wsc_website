@@ -2,8 +2,19 @@ html{
     /* background-color: #42a5f5;  */
     background: #fff;
   }
+
+#logo img{
+  width: 190px;
+  height: 164px; 
+  float: left; 
+}
   
-.banner h1 {
+.banner h1, p {
+    padding-top: 3.5%;
+    color: white; 
+}
+
+.banner p {
     padding-top: 3.5%;
     color: white; 
   }
@@ -18,7 +29,7 @@ html{
 .banner{
     background: #80d6ff;
     height: auto;
-    margin: 6% -16% 5% 11%;
+    margin: 4% -3% 9% 28%;
     border-radius: 11px; 
     font-size: 32px; 
   }
@@ -31,9 +42,11 @@ html{
     width: 81%; 
     position: relative;
     left: 10%;
+    padding: 0 0 45px 0;
     
   }
-.info-btn{
+
+/* .info-btn{
     height: 50px;
     width: 120px;
     border-radius: 11px;
@@ -45,16 +58,17 @@ html{
     top: -10px;
     font-size: large;
     box-shadow: 3px 3px 3px black; 
-  }
+  } */
 #top-nav {
-    background: #0077c2;
+    /* background: #0077c2; */
     height: 80px; 
     text-align: center;
+    margin: 0px 0px 0 17px;
   }
   
 #top-nav ul {
     display: inline-flex;
-    width: 50%;
+    width: 80%;
   
   }
   
@@ -66,10 +80,12 @@ html{
   }
   
 a {
-   color: white;
+   /* color: white; */
    font-size: 20px;
   }
-
+#h1{
+  font-size: 32px;
+}
 label {
     font-size: 22px; 
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
