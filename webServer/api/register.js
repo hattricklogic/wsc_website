@@ -12,7 +12,7 @@ router.route('/register')
             console.log(req.body);
             
         Register.findOne({ email: req.body.email }, (error, user) => {
-            console.log(user);
+            // console.log(user);
             if (error){
                 return console.log("Could not find userId", req.body.uname );
             }

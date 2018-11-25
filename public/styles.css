@@ -95,6 +95,17 @@ legend{
       display: inline-block;
       /* float: left; */
   }
+  #product-info input{
+    height: 50px;
+    width: 120px;
+    border-radius: 11px;
+    border-color: #155724;
+    background: #c3e6cb;
+    color: #155724;
+    font-size: large;
+    box-shadow: 3px 3px 7px black;
+    margin: 5% 0 3% 0;
+  }
   button[type=submit]{
     height: 50px;
     width: 120px;
@@ -139,7 +150,7 @@ section#products{
 #product-info {
     height: 66px;
     /* border: 2px #0077c2 inset; */
-    margin: 14px;
+    margin: 7px 7px 50px 1px;
     text-align: center;
     /* box-shadow: 5px 5px 5px; */
 }

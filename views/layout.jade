@@ -28,10 +28,19 @@ html(lang='en')
             a(href='/products') Products
           li
             a(href='/services') Services
-          li
-            a(href='/login') Login 
-          li
-            a(href='/register') Register 
+          if !loggedIn 
+            li
+              a(href='/login') Login 
+          else 
+            li 
+              a(href='/logout') Logout
+          if !loggedIn
+            li
+              a(href='/register') Register 
+          else 
+            li 
+              a(href='/myProfile') My Profile
+
     script(src="./jquery.min.js",type="text/javascript")
     script(src="./client/api.js",type="text/javascript") 
     block content

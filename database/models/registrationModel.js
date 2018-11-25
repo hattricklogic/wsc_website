@@ -11,6 +11,7 @@ var userSchema = new mongoose.Schema({
   password: { type: String, required: true },
   email : { type: String, required: true},
   roles: [String],
+  loggedIn: Boolean,
   contact: {
     phone: Number
   },

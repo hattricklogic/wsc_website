@@ -1,31 +1,4 @@
 
-// $(function () {
-
-// $("#register-btn ").click(function (event) {
-  
-//     $.ajax({
-//             type: "POST",
-//             url: "/login",
-//             data: JSON.stringify(loginData),
-//             contentType : "application/json"
-//         }).done(function () {
-//             document.getElementById('errors').innerHTML = res;
-//         }); 
-//     }); 
-// $("#login-btn").click(function () {
-     
-//         $.ajax({
-//             type: "POST",
-//             url: "/login",
-//             data: JSON.stringify(loginData),
-//             contentType : "application/json"
-//         }).done(function () {
-//             console.log("User Logged In");
-//         }); 
-//     }); 
-// });
-    // var products = document.getElementById("products").append(parent);
-
 $(function () {
     var plaque = ["Plaque.jpg"]
     var sweater = ["Sweater_Ash", 
@@ -62,8 +35,13 @@ $(function () {
         var sibling = document.createElement("div");
             sibling.id = "product-info";
             sibling.innerHTML = `$89.95 Gold Plated Plaque`;
+        var inputBtn = document.createElement("input");
+            inputBtn.id = "addProduct-"+ plaque[i]; 
+            inputBtn.type = "submit"; 
+            inputBtn.value = "Add To Cart";
             parent.append(child);
             parent.append(sibling);
+            sibling.append(inputBtn); 
             document.getElementById("products").append(parent);
     }
     for (var i =0; i < sweater.length; i++){
@@ -76,8 +54,13 @@ $(function () {
         var str = sweater[i];
         var res = str.replace(/_/g, " ");
             sibling.innerHTML = `$34.95 ${res}`;
+        var inputBtn = document.createElement("input");
+            inputBtn.id = "addProduct-"+ sweater[i]; 
+            inputBtn.type = "submit"; 
+            inputBtn.value = "Add To Cart";
             parent.append(child);
             parent.append(sibling);
+            sibling.append(inputBtn); 
             document.getElementById("products").append(parent);
     }
     for (var i =0; i < tshirt.length; i++){
@@ -90,8 +73,13 @@ $(function () {
         var str = tshirt[i];
         var res = str.replace(/_/g, " ");
             sibling.innerHTML = `$24.95 ${res}`
+        var inputBtn = document.createElement("input");
+            inputBtn.id = "addProduct-"+ tshirt[i]; 
+            inputBtn.type = "submit"; 
+            inputBtn.value = "Add To Cart";
             parent.append(child);
             parent.append(sibling);
+            sibling.append(inputBtn); 
             document.getElementById("products").append(parent);
     }
     for (var i =0; i < trophy.length; i++){
@@ -104,8 +92,13 @@ $(function () {
         var str = trophy[i];
         var res = str.replace(/_/g, " ");
             sibling.innerHTML = `$12.95 ${res}`
+        var inputBtn = document.createElement("input");
+            inputBtn.id = "addProduct-"+ trophy[i]; 
+            inputBtn.type = "submit"; 
+            inputBtn.value = "Add To Cart";
             parent.append(child);
             parent.append(sibling);
+            sibling.append(inputBtn); 
             document.getElementById("products").append(parent);
     }
 

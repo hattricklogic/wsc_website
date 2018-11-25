@@ -29,7 +29,9 @@ router.route('/login')
         }
         if (user && passwordsMatch){
 
-            return res.redirect('products')
+            return res.render('catalog/products', {
+                loggedIn: true
+            })
         }
     });  // end findOne()
     db.close;
