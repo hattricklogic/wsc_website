@@ -39,7 +39,7 @@ $(function () {
                 "Softball_F"
             ];
 
-    for (var i =0; i < plaque.length; i++){
+    for (var i =0; i < plaque.length-1; i++){
         var parent = document.createElement("li");
             parent.id = 'product-section';
         var child = document.createElement("img");
@@ -56,7 +56,7 @@ $(function () {
             sibling.append(inputBtn); 
             document.getElementById("products").append(parent);
     }
-    for (var i =0; i < sweater.length; i++){
+    for (var i =0; i <= sweater.length-1; i++){
         var parent = document.createElement("li");
             parent.id = 'product-section';
         var child = document.createElement("img");
@@ -75,7 +75,7 @@ $(function () {
             sibling.append(inputBtn); 
             document.getElementById("products").append(parent);
     }
-    for (var i =0; i < tshirt.length; i++){
+    for (var i =0; i <= tshirt.length-1; i++){
         var parent = document.createElement("li");
             parent.id = 'product-section';
         var child = document.createElement("img");
@@ -94,7 +94,7 @@ $(function () {
             sibling.append(inputBtn); 
             document.getElementById("products").append(parent);
     }
-    for (var i =0; i < trophy.length; i++){
+    for (var i =0; i < trophy.length-1; i++){
         var parent = document.createElement("li");
             parent.id = 'product-section';
         var child = document.createElement("img");
@@ -111,7 +111,21 @@ $(function () {
             parent.append(child);
             parent.append(sibling);
             sibling.append(inputBtn); 
-            document.getElementById("products").append(parent);
+            // document.getElementById("products").append(parent);
     }
-
+    function getCookie(){
+        var token = document.getElementById('products').getAttribute('name'); 
+            
+        if (token != ''){
+            localStorage.setItem('token', token);
+        }else {
+            // alert("not loggedIn Yet")
+            console.log("not loggedIn Yet");
+        }
+    }
+    setTimeout(() => {
+        // console.log("running get cookie");
+        getCookie();
+    }, 5000);
+    
 });

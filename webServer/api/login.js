@@ -10,9 +10,9 @@ Description: This is a server side api for login.
              products page. 
 
 */ 
-
 import express from 'express';
 import db from '../../database/config/wscDB';
+import jwt from 'jsonwebtoken';
 
 const router = express.Router(); 
 const User = db.register;
@@ -23,34 +23,36 @@ router.route('/login')
         res.render("auth/login", {title:"Login Page"})
     })
     .post((req, res, next) => { 
+     
+        User.findOne({ email: req.body.userName }, (error, user) => {
+
+            if (error){
+                return console.log("Could not find userId", req.body.uname );
+            }
+            if (!user) {
     
-    User.findOne({ email: req.body.userName }, (error, user) => {
-
-        const passwordsMatch = User.passwordMatches(req.body.password, user.password);
-
-        if (error){
-            return console.log("Could not find userId", req.body.uname );
-        }
-        if (!passwordsMatch || !user) {
-
-            const msg = 'User Name or Password incorrect!'
-            return res.render('auth/login', {
-            errors: msg,
-            userName: req.body.userName,
-            password: req.body.password 
-            })
-        }
-        if (user && passwordsMatch){
-
-            return res.render('catalog/products', {
-                loggedIn: true
-            })
-        }
-    });  // end findOne()
-    db.close;
+                const msg = 'User Name or Password incorrect!'
+                return res.render('auth/login', {
+                errors: msg,
+                userName: req.body.userName,
+                password: req.body.password 
+                })
+            }
+            const passwordsMatch = User.passwordMatches(req.body.password, user.password);
+    
+            if (user && passwordsMatch){
+                
+                const tokenData = { username: req.body.userName, id: user._id };
+                jwt.sign({ user: tokenData }, "mySecretDevryToken", (err, token) =>{
+        
+                    if (err) console.log("error setting token ", err.name);
+                    
+                    return res.render('catalog/products', {securedToken: token});
+             });
+            }
+        });  // end findOne()
+        db.close;
 });
-
-
 
 export default router
 

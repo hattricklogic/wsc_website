@@ -13,5 +13,8 @@ extends ../layout
 block content
     title=title
     h1 All Products 
-    ul(id="products")
+    ul(id="products", name='#{securedToken}')
+    
+
+  
     

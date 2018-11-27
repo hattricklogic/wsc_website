@@ -2,6 +2,7 @@ import express from 'express'
 import bodyparser from 'body-parser'
 import register from './webServer/api/register'
 import login from './webServer/api/login'
+import myProfile from './webServer/api/myProfile'
 
 const app = express()
 
@@ -14,9 +15,8 @@ app.use(bodyparser.urlencoded({extended : true }));
 app.use(bodyparser.json());
 app.use(register);
 app.use(login);
-app.use(require('express-session')({
-    secret: 'my secret', resave: false, saveUninitialized: false
-}));
+app.use(myProfile);
+
 
 app.get('/', (req, res) => {
     res.render("index", {title:"Devry Project 2018"})
@@ -30,7 +30,12 @@ app.get('/services', (req, res) => {
 });
 
 app.get('/products', (req, res) => {
-    res.render("catalog/products", {title:"Our Services"});
+    res.render("catalog/products", {title:"Our Products"});
 });
+
+app.get('/cart', (req, res) => {
+    res.render("cart", {title:"Shopping Cart"});
+});
+
 
 app.listen(8000, () => console.log("listening at http://localhost:8000"));
