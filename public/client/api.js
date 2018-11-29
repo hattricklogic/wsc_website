@@ -9,9 +9,10 @@ Description: This is a client side api used to create
              essentially staging items for purchasing later.  
 */ 
 
-
-
+var token; 
+var user = {};
 $(function () {
+    
     var plaque = ["Plaque.jpg"]
     var sweater = ["Sweater_Ash", 
                     "Sweater_Black", 
@@ -111,21 +112,55 @@ $(function () {
             parent.append(child);
             parent.append(sibling);
             sibling.append(inputBtn); 
-            // document.getElementById("products").append(parent);
+            document.getElementById("products").append(parent);
     }
-    function getCookie(){
-        var token = document.getElementById('products').getAttribute('name'); 
-            
-        if (token != ''){
-            localStorage.setItem('token', token);
-        }else {
-            // alert("not loggedIn Yet")
-            console.log("not loggedIn Yet");
-        }
-    }
-    setTimeout(() => {
+   
+    // setTimeout(() => {
         // console.log("running get cookie");
         getCookie();
-    }, 5000);
+        
+
+    // }, 0);
+
+   
     
 });
+
+function getCookie(){
+
+    alert(windows.location)    
+    token = localStorage.getItem('token'); 
+    console.log("tried ot get token ", token); 
+
+    if (!token){
+        token = document.getElementById('products').getAttribute('name');
+        document.getElementById('products').setAttribute('name', '');
+        console.log("setting token", token);
+        localStorage.setItem('token', token);
+    }
+    else if (token) {
+       setTimeout(() => {
+        getCustomerData();
+       }, 1000);
+        
+    }
+}
+
+function getCustomerData(){
+    
+     token = localStorage.getItem('token');
+     console.log("getting token from loaclStorage", token); 
+     if(token){  
+    $.ajax({
+        type: "GET",
+        beforeSend: function(request) {
+            request.setRequestHeader("Authorization", 'bearer '+token);
+          },
+        url: "/customer",
+        contentType : "application/json"
+    }).done(function (data) {
+        console.log(data);
+    });
+} else 
+    console.log("error getting cookie");
+}

@@ -9,21 +9,35 @@ Description: This module contains the database connections and
              of validation before writting data to the database. 
 */ 
 
+var MongoClient = require("mongodb").MongoClient;
 import mongoose from "mongoose";
-import registerModel from "../models/RegistrationModel";
-import productModel from '../models/ProductsModel'; 
+import register from "../models/RegistrationModel";
+import product from '../models/ProductsModel'; 
 
-const url = "mongodb://localhost:27017/WSC_DB"; // add you database connection string here 
-const connect = mongoose.connect(url, { useNewUrlParser: true})
-    .then( () => console.log('Connected to MongoDB!'))
-    .catch(error => console.log(error))
+mongoose.Promise = global.Promise;
+const url = "mongodb://localhost:27017/WSC_DB"; 
+const connect = new MongoClient(url, { useNewUrlParser: true});
+mongoose.connect(url);
+
+// const db = mongoose.connection;
+// db.on('error', console.error.bind(console, 'connection error:'));
+// db.once('open', function() {
+//     console.log("connection open");
+// });
+
 
 export default {
-    connection: connect, 
-    register: registerModel,
-    product: productModel,
+    connect, 
+    register,
+    product,
+    MongoClient,
     close: function(){
-      connection.then(db => db.close());
-      mongoose.disconnect();
+      connect
+      .then(db => db.close())
+      .then(() => {
+          console.log("closing connection"); 
+          mongoose.disconnect();
+    });
+      
     }
 }

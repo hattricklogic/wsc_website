@@ -2,7 +2,7 @@ import express from 'express'
 import bodyparser from 'body-parser'
 import register from './webServer/api/register'
 import login from './webServer/api/login'
-import myProfile from './webServer/api/myProfile'
+import customerProfile from './webServer/api/customer'
 
 const app = express()
 
@@ -15,7 +15,7 @@ app.use(bodyparser.urlencoded({extended : true }));
 app.use(bodyparser.json());
 app.use(register);
 app.use(login);
-app.use(myProfile);
+app.use(customerProfile);
 
 
 app.get('/', (req, res) => {
