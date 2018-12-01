@@ -1,0 +1,26 @@
+<h1>Editing Profile </h1>
+
+<section class="edit-user">
+    <h1>Editing Customer Information</h1>
+    <form action="/register/edit/{{user.id}}?_method=PUT" method='POST'>
+        <input type="hidden" name='_method' value='PUT'>
+        <section class="form-container">
+        <hr>
+        <label for="firstName">First Name </label>
+        <input type="text"  name='firstName' id='firstName' value={{fname}} required> 
+
+        <label for="lastName">Last Name </label>
+        <input type="text"  name='lastName'id='lastName' value={{lname}} required> 
+
+        <label for="email">Email </label>
+        <input type="email"  name='email' id='email' value={{user.email}} required> 
+
+        <label for="password">Password </label>
+        <input type="password"  name='password' id='password' value={{password}} required> 
+
+        <button type='submit' id='save-btn'>Save</button>
+    
+        </section>
+    </form>
+</section>
+  

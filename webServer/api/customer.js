@@ -17,10 +17,11 @@ router.route('/customer')
         } else {
             Register.findOne({email: authData.user.username})
             .then( user => {
-                  res.render("catalog/prdocut", { user:user } )            
+                  console.log('res.locals', res.locals, user);
+                //   res.locals("catalog/products", { user:user } )            
             });
         }
-    });  
+    });
 }); 
 
 export function verifyToken(req, res, next){

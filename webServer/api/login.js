@@ -12,11 +12,10 @@ Description: This is a server side api for login.
 */ 
 import express from 'express';
 import db from '../../database/config/wscDB';
-import jwt from 'jsonwebtoken';
 
 const router = express.Router(); 
 const User = db.register;
-
+var userSession; 
 // When a Users request the Login Page Display the view for the Login
 router.route('/login')
     .get((req, res) => {  
@@ -41,17 +40,13 @@ router.route('/login')
             const passwordsMatch = User.passwordMatches(req.body.password, user.password);
     
             if (user && passwordsMatch){
-                
-                const tokenData = { username: req.body.userName, id: user._id };
-                jwt.sign({ user: tokenData }, "mySecretDevryToken", (err, token) =>{
-        
-                    if (err) console.log("error setting token ", err.name);
-                    
-                    return res.render('catalog/products', {securedToken: token});
-             });
+                userSession = req.session; 
+                userSession.userName;
+
+                res.render('catalog/products'); 
             }
         });  // end findOne()
-        db.close;
+        db.close
 });
 
 export default router
