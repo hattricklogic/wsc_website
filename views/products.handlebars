@@ -1,1 +1,40 @@
 <h1>All Products</h1>
+    <ul class='products product-items'>
+ {{#each products}}
+    {{#if plaque}}
+       {{!-- <form action="/orders/{{user.id}}?_method=PUT" method='PUT'> --}}
+         <form action="/orders/{{user.id}}?_method=PUT" method='GET'>
+
+         <li> 
+            <img src="/imgs/Plaque/{{product}}.jpg" alt="">
+            {{!-- <input type="hidden" name='_method' value='PUT'> --}}
+            {{!-- <input type='hidden' name={{product}} value={{product}}>  --}}
+            {{!-- <input type='hidden' name={{user.id}} value={{user.id}}>  --}}
+            <input type="submit" name={{product}} class='productBtn' value="Add To Cart">
+         </li>
+       </form>
+    {{/if }}
+
+    {{#if sweater}}
+         <li ><img src="/imgs/Sweatshirts/{{sweater}}_{{product}}.jpg" alt="">
+         <input type="submit" class='productBtn' value="Add To Cart">
+         </li>
+    {{/if }}
+
+    {{#if tshirt}}
+       <li><img src="/imgs/T_shirts/{{tshirt}}_{{product}}.jpg" alt="">
+       <input type="submit" class='productBtn' value="Add To Cart">
+       </li>
+    {{/if}}  
+
+    {{#if trophy}}
+       <li ><img src="/imgs/Trophy/{{product}}_{{gender}}.jpg" alt="">
+       <input type="submit" class='productBtn' value="Add To Cart">
+       </li>
+    {{/if}}   
+
+ {{else}}
+    <section> <h1>No Products Found! </h1> </section>
+
+{{/each}}
+    </ul>

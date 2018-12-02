@@ -9,7 +9,9 @@ import path from 'path'
 import bcrypt from 'bcryptjs'
 import passport from 'passport'
 import Register from './database/models/Registration'
+import Products from './database/models/Products'
 import authorize from './conf/passport'
+import auth from './utilities/auth'
 // TODO: move this to a external file 
 // This is our database connection
 mongoose.Promise = global.Promise;
@@ -46,7 +48,6 @@ app.use(passport.session());
 app.engine('handlebars', exphbr({defaultLayout: 'main'}))
 app.set('view engine', 'handlebars');
 
-
 // Global Variables 
 app.use((req, res, next) =>{
     res.locals.sucess_msg = req.flash("success_msg");
@@ -55,7 +56,6 @@ app.use((req, res, next) =>{
     res.locals.user = req.user || null;
     next();
 })
-
 
 app.get('/', (req, res) => {
     const title = "Welcome";
@@ -69,7 +69,31 @@ app.get('/about', (req, res) => {
 });
 
 app.get('/products', (req, res) => {
-    res.render('products')
+    Products.find({})
+    .then(products => {
+        res.render('products', {products : products})
+    })
+});
+
+app.get('/orders', auth.ensureAuthenticiated, (req, res) => {
+    console.log(req.body);
+    // Register.find({})
+    res.send("OK")
+    
+    // res.send("OK");
+    
+    // Product.findOne({item: req.body.Plaque[0]})
+    // .then(item => {
+    //     item.product = req.body.firstName;
+    //     item.price = req.body.lastName; 
+    //     user.email = req.body.email;
+    //     user.password = req.body.password; 
+         
+    //     user.save()
+    //     })
+    //     .then(user => {
+    //         res.render("register/view", {user:user});
+    //     }).catch(err => console.log("errror happend on save ", err, user)); 
 });
 
 app.get('/register/new', (req, res) => {
@@ -89,13 +113,15 @@ app.get('/login', (req, res) => {
 });
 
 app.post('/login', (req, res, next) => {
+    
     passport.authenticate('local', {
         successRedirect: '/products',
         failureRedirect: '/login',
         failureFlash: true
     })(req, res, next)
    
-})
+});
+
 app.post('/register/new', (req, res) => { 
 
     
@@ -131,6 +157,7 @@ app.post('/register/new', (req, res) => {
             }
         });
 });
+
 app.get('/register/edit/:id', (req, res) => {
     Register.findOne({_id: req.params.id})
     .then(user => res.render('register/edit', { user:user }))
@@ -144,16 +171,16 @@ app.put('/register/edit/:id', (req, res) => {
         user.lname = req.body.lastName; 
         user.email = req.body.email;
         user.password = req.body.password; 
-
+         
         user.save()
+        })
         .then(user => {
-            res.render("register/view", {user});
-        }); 
-    }); 
+            res.render("register/view", {user:user});
+        }).catch(err => console.log("errror happend on save ", err, user)); 
 });
 
 app.delete('/register/edit/:id', (req, res) => {
-    Register.findOneAndRemove({
+    Register.findOneAndDelete({
          _id: req.params.id 
         })
         .then(() => {
@@ -161,4 +188,5 @@ app.delete('/register/edit/:id', (req, res) => {
             res.redirect('register/view')
         })
 });
+
 app.listen(8000, () => console.log("listening at http://localhost:8000"));

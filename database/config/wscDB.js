@@ -9,7 +9,7 @@ Description: This module contains the database connections and
              of validation before writting data to the database. 
 */ 
 
-var MongoClient = require("mongodb").MongoClient;
+
 import mongoose from "mongoose";
 import register from "../models/RegistrationModel";
 import product from '../models/ProductsModel'; 
@@ -18,12 +18,6 @@ mongoose.Promise = global.Promise;
 const url = "mongodb://localhost:27017/WSC_DB"; 
 const connect = new MongoClient(url, { useNewUrlParser: true});
 mongoose.connect(url);
-
-// const db = mongoose.connection;
-// db.on('error', console.error.bind(console, 'connection error:'));
-// db.once('open', function() {
-//     console.log("connection open");
-// });
 
 
 export default {

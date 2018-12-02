@@ -99,7 +99,7 @@ legend{
       margin: 0 0 1% 0; 
       display: inline-block;
   }
-  #product-info input{
+  .productBtn{
     height: 50px;
     width: 120px;
     border-radius: 11px;
@@ -131,21 +131,25 @@ legend{
     padding: 22px 0 22px 0;
     text-align: center;
   }
-section#products{
+.products{
   text-align: center 
 }
 
-#products img {
+.products img {
     width: 200px; 
     height: 200px;
     margin: 5% 0 0 0;
     border-radius: 5px; 
     text-align: center;
   }
-#products{
+.products, .nav-auth{
     list-style: none;
   }
-#product-section{
+
+.nav-auth{
+  display: inline-block;
+}
+.product-items li{
   width: 20%; 
   float: left;
 }
