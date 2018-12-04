@@ -1,8 +1,14 @@
 {{#each errors}}
     <section>
-        <h1>{{errors}}</h1> 
+        <h1>{{text}}</h1> 
     </section>
 {{else}}
     <p> No Profile Created </p>
 {{/each}}
+
+{{#each error}}
+     <section>
+        <h1>{{error}}</h1> 
+    </section>
+{{/each }}
 

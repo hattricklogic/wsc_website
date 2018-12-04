@@ -10,6 +10,7 @@ import bcrypt from 'bcryptjs'
 import passport from 'passport'
 import Register from './database/models/Registration'
 import Products from './database/models/Products'
+import Orders from './database/models/Orders'
 import authorize from './conf/passport'
 import auth from './utilities/auth'
 // TODO: move this to a external file 
@@ -58,9 +59,9 @@ app.use((req, res, next) =>{
 })
 
 app.get('/', (req, res) => {
-    const title = "Welcome";
+   
     res.render('index', {
-        title : title
+        
     })
 });
 
@@ -74,36 +75,55 @@ app.get('/products', (req, res) => {
         res.render('products', {products : products})
     })
 });
+app.get('/orders', auth.ensureAuthenticiated, (req, res) =>{
 
-app.get('/orders', auth.ensureAuthenticiated, (req, res) => {
-    console.log(req.body);
-    // Register.find({})
-    res.send("OK")
+    Orders.find({user: req.user.id})
+    .then(order => {
+        console.log(order);
+        res.render("orders", {orders: order})
+    })
+});
+
+app.put('/orders/:id', (req, res) => {  
     
-    // res.send("OK");
-    
-    // Product.findOne({item: req.body.Plaque[0]})
-    // .then(item => {
-    //     item.product = req.body.firstName;
-    //     item.price = req.body.lastName; 
-    //     user.email = req.body.email;
-    //     user.password = req.body.password; 
-         
-    //     user.save()
-    //     })
-    //     .then(user => {
-    //         res.render("register/view", {user:user});
-    //     }).catch(err => console.log("errror happend on save ", err, user)); 
+    Products.findOne({_id: req.params.id})
+    .then(item => {
+        const order = {
+            product: item.product, 
+            price: item.price,
+            type: req.body.choice,
+            user: req.user.id
+        }
+        new Orders(order)
+            .save()
+            .then( orders => {
+                res.render("orders", {orders: orders})
+         })
+    })
+    .catch(err => console.log("Error updating Order", err));
 });
 
 app.get('/register/new', (req, res) => {
     res.render('register/new')
 });
 
-app.get('/customer', (req, res) => {
+app.get('/pending', (req, res) => {
     Register.find({})
     .then(user => {
-        res.render('register/view', {user : user})
+        res.render('admin/pendingOrders', {user : user})
+    })
+});
+
+app.get('/locator', (req, res) => {
+  
+    res.render('findCustomer');
+});
+app.post('/locator', (req, res) => {
+    console.log(req.body);
+    Register.find({email: req.body.email})
+    .then(customer => {
+        console.log(customer);
+        res.render('findCustomer', {customer : customer})
     })
 });
 

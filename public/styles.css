@@ -121,6 +121,7 @@ legend{
     box-shadow: 3px 3px 7px black;
     margin: 0 0 0 61%;
   }
+  
 
 #alert{
     width: 100%; 
@@ -158,5 +159,56 @@ legend{
     margin: 7px 7px 50px 1px;
     text-align: center;
 }
+
+.sweater {
+  /* The image used */
+  background-image: url("/imgs/Sweatshirts/Sweater_Black.jpg");
+}
+.plaque {
+  /* The image used */
+  background-image: url("/imgs/Plaque/Plaque.jpg");
+}
+
+.tshirt {
+  /* The image used */
+  background-image: url("/imgs/T_shirts/Tshirt_Red.jpg");
+}
+
+.trophy {
+  /* The image used */
+  background-image: url("/imgs/Trophy/Soccer_F.jpg");
+}
+.plaque, .tshirt, .sweater, .trophy{
+  background-size: 100px 100px;
+  /* Set a specific height */
+  min-height: 800px; 
+  min-width: 300px;
+
+  /* Create the parallax scrolling effect */
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.divider{
+  height:500px;
+  font-size:36px;
+  /* transform: rotate(3deg); */
+  text-align:center;
+  background-image:url('/imgs/logo/wsc_logo_small.png');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 500px;
+  margin-top: 3%;
+  background-color: wheat;
+}
+
+.divider.first{
+  transform: rotate(0deg);
+  margin-top: 20%;
+  font-size: 72px; 
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
   
   

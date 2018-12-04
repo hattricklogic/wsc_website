@@ -2,35 +2,44 @@
     <ul class='products product-items'>
  {{#each products}}
     {{#if plaque}}
-       {{!-- <form action="/orders/{{user.id}}?_method=PUT" method='PUT'> --}}
-         <form action="/orders/{{user.id}}?_method=PUT" method='GET'>
-
+       <form action="/orders/{{id}}?_method=PUT" method='POST'>
          <li> 
             <img src="/imgs/Plaque/{{product}}.jpg" alt="">
-            {{!-- <input type="hidden" name='_method' value='PUT'> --}}
-            {{!-- <input type='hidden' name={{product}} value={{product}}>  --}}
-            {{!-- <input type='hidden' name={{user.id}} value={{user.id}}>  --}}
-            <input type="submit" name={{product}} class='productBtn' value="Add To Cart">
+            <input type="hidden" name='_method' value='PUT'>
+            <input type='hidden' name='choice' value={{product}}>
          </li>
+         <input type="submit"  class='productBtn' value="Order">
        </form>
     {{/if }}
 
     {{#if sweater}}
-         <li ><img src="/imgs/Sweatshirts/{{sweater}}_{{product}}.jpg" alt="">
-         <input type="submit" class='productBtn' value="Add To Cart">
+     <form action="/orders/{{id}}?_method=PUT" method='PUT'>
+         <li name={{product}}>
+            <img src="/imgs/Sweatshirts/{{sweater}}_{{product}}.jpg" alt="">
+            <input type="submit" class='productBtn' value="Add To Cart">
          </li>
+      </form>
     {{/if }}
 
     {{#if tshirt}}
-       <li><img src="/imgs/T_shirts/{{tshirt}}_{{product}}.jpg" alt="">
-       <input type="submit" class='productBtn' value="Add To Cart">
+     <form action="/orders/{{id}}?_method=PUT" method='PUT'>
+       <li name={{product}}>
+          <img src="/imgs/T_shirts/{{tshirt}}_{{product}}.jpg" alt="">
+         <input type="submit" class='productBtn' value="Add To Cart">
        </li>
+      </form>
     {{/if}}  
 
     {{#if trophy}}
-       <li ><img src="/imgs/Trophy/{{product}}_{{gender}}.jpg" alt="">
-       <input type="submit" class='productBtn' value="Add To Cart">
-       </li>
+      
+      <form action="/orders/{{id}}?_method=PUT" method='PUT'>
+
+         <li name={{product}} >
+            <img src="/imgs/Trophy/{{product}}_{{gender}}.jpg" alt="">
+            <input type="submit" class='productBtn' value="Add To Cart">
+         </li>
+
+      </form>
     {{/if}}   
 
  {{else}}

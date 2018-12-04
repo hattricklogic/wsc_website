@@ -15,8 +15,12 @@ var OrdersSchema = new mongoose.Schema({
   product: { type: String },
   price: { type: String },
   desc: { type: String },
-  email : { type: String},
-  purchased: {type: Boolen}, 
+  user : { type: String},
+  type: { type: String },
+  sweater: {type: String },
+  tshirt: {type: String },
+  trophy: {type: String }, 
+  gender: { type: String },
   date: {type: Date, defalut: Date.now}
 });
 

@@ -3,12 +3,12 @@
  * For example, generating a token, getting the username, etc.
  */
 
-import jwt from 'jsonwebtoken';
+// import jwt from 'jsonwebtoken';
 
-export function generateJWT(user) {
-    const tokenData = { email: user.email, id: user._id };
-    return jwt.sign({ user: tokenData }, process.env.TOKEN_SECRET);
-}
+// export function generateJWT(user) {
+//     const tokenData = { email: user.email, id: user._id };
+//     return jwt.sign({ user: tokenData }, process.env.TOKEN_SECRET);
+// }
 
 // export function requireLogin(req, res, next) {
 //     const token = decodeToken(req);

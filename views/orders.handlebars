@@ -1,0 +1,13 @@
+{{#each orders}}
+        <table>
+            <th>Product</th>
+            <th>Price</th>
+            <tr>
+                <td>{{product}}</td>
+                <td>{{price}}</td>
+            </tr>
+        </table>
+       
+{{else}}
+ <h1>No orders found</h1>
+{{/each}}
