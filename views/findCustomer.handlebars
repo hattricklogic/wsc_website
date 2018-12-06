@@ -1,21 +1,21 @@
 <h1>Customer Locator  </h1>
+{{#if customer}}
 {{#each customer}}
     <section>
         <h1>{{fname}} {{lname}} {{email}}</h1>
-         
     </section>
 {{else}}
     <h1> No Profile Found </h1> 
     <a href="/register/new">Register User</a>
 {{/each}}
-
+{{/if }}
 <section class="edit-user">
     <h1>Search by Email</h1>
 
     <form action="/locator" method='POST'>
         <section class="form-container">
         <hr>
-
+        
         <label for="email">Email </label>
         <input type="email"  name='email' id='email' required> 
 

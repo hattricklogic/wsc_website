@@ -1,16 +1,17 @@
 <h1>Viewing Profile </h1>
 
   
-       {{#each user}}
-        <form action="/register/edit/{{id}}?_method=DELETE" method="POST">
-            <span>{{fname}}</span> 
-            <span>{{lname}}</span> 
-            <span>{{email}}</span> 
-            <a href="/register/edit/{{id}}">Edit</a>
+       {{!-- {{#each user}} --}}
+       {{#if user}}
+        <form action="/register/edit/{{user.id}}?_method=DELETE" method="POST">
+            <span>{{user.fname}}</span> 
+            <span>{{user.lname}}</span> 
+            <span>{{user.email}}</span> 
+            <a href="/register/edit/{{user.id}}">Edit</a>
             <input type="hidden" name='_method' value='DELETE'>
             <input type="submit" value="Delete">
         </form>
         
 {{else}}
     <span> No Profiles Created </span>
-{{/each}}
+{{/if}}

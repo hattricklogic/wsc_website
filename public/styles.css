@@ -1,69 +1,37 @@
 html{
-    /* background-color: #42a5f5;  */
-    background: #fff;
+    background: #F57C00;
+    /* color: #FFE0B2;  */
+    /* background: #ffc400; */
+    background: #FFA726;
+    color: white; 
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   }
 
-#logo img{
-  width: 190px;
-  height: 164px; 
+.nav-container{
+  width: 100%;
+  height: 100px;
+  /* background: #FF9800; */
+  background: #FFE0B2;
+  
+  
+}
+.nav-container ul{
+  display:inline-flex;
+  list-style: none; 
+  margin-bottom: 5%; 
+}
+
+#nav-container section{
   float: left; 
 }
-  
-.banner h1, p {
-    padding-top: 3.5%;
-    color: white; 
+
+.li-link {
+  padding: 15px;
+  margin-right: 10px; 
+  color: #F57C00; 
 }
+  
 
-.banner p {
-    padding-top: 3.5%;
-    color: white; 
-  }
-.left-content{
-    width: 75%; 
-  }
-  
-.left-content aside{
-    text-align: center;
-  }
-   /* other colors #0077c2 Dark blue */
-.banner{
-    background: #80d6ff;
-    height: auto;
-    margin: 4% -3% 9% 28%;
-    border-radius: 11px; 
-    font-size: 32px; 
-  }
-  
-.banner p{
-    font-size: 20px;
-    font-family: cursive;
-    margin: 30px  0 60px 0;
-    text-align:initial;
-    width: 81%; 
-    position: relative;
-    left: 10%;
-    padding: 0 0 45px 0;
-    
-  }
-
-#top-nav {
-    height: 80px; 
-    text-align: center;
-    margin: 0px 0px 0 17px;
-  }
-  
-#top-nav ul {
-    display: inline-flex;
-    width: 80%;
-  
-  }
-  
-#top-nav ul li {
-    display: inline-flex; 
-    list-style-type: none;
-    margin-right: 5%;
-    
-  }
 .cart img {
   width: 50px;
   height: 50px;
@@ -72,11 +40,13 @@ html{
   top: -56px;
 }
   
-a {
-   font-size: 20px;
-  }
-#h1{
-  font-size: 32px;
+.h1{
+  font-size: 72px;
+  margin-right: 33%;
+  margin-left: 33%;
+  width: 31%;
+  font-family: monospace;
+  text-transform: uppercase;
 }
 label {
     font-size: 22px; 
@@ -85,10 +55,6 @@ label {
     display: inline-block;
     width: 250px;
     text-align: right;
-  }
-legend{
-    margin-bottom: 3%; 
-    font-size: 22px;
   }
  
   input[type=text], input[type=password], 
@@ -145,6 +111,7 @@ legend{
   }
 .products, .nav-auth{
     list-style: none;
+    display: block !important;
   }
 
 .nav-auth{
@@ -163,6 +130,7 @@ legend{
 .sweater {
   /* The image used */
   background-image: url("/imgs/Sweatshirts/Sweater_Black.jpg");
+  
 }
 .plaque {
   /* The image used */
@@ -177,11 +145,12 @@ legend{
 .trophy {
   /* The image used */
   background-image: url("/imgs/Trophy/Soccer_F.jpg");
+  
 }
 .plaque, .tshirt, .sweater, .trophy{
-  background-size: 100px 100px;
+  /* background-size: 350px 450px; */
   /* Set a specific height */
-  min-height: 800px; 
+  min-height: 300px; 
   min-width: 300px;
 
   /* Create the parallax scrolling effect */
@@ -192,7 +161,7 @@ legend{
 }
 .divider{
   height:500px;
-  font-size:36px;
+  font-size:72px;
   /* transform: rotate(3deg); */
   text-align:center;
   background-image:url('/imgs/logo/wsc_logo_small.png');
@@ -200,7 +169,8 @@ legend{
   background-repeat: no-repeat;
   background-size: 500px;
   margin-top: 3%;
-  background-color: wheat;
+  background-color: #ffc400;
+  
 }
 
 .divider.first{

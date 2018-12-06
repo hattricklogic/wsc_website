@@ -1,13 +1,13 @@
-// /*
-// Author: Rob Thomas 
-// Created: Nov 22, 2018 
-// Module: Client-side API  
+// // /*
+// // Author: Rob Thomas 
+// // Created: Nov 22, 2018 
+// // Module: Client-side API  
 
-// Description: This is a client side api used to create  
-//              and update the product list for the site.
-//              This will allow user to add items to a cart, 
-//              essentially staging items for purchasing later.  
-// */ 
+// // Description: This is a client side api used to create  
+// //              and update the product list for the site.
+// //              This will allow user to add items to a cart, 
+// //              essentially staging items for purchasing later.  
+// // */ 
 
 // $(function () {
     
@@ -114,41 +114,41 @@
 //     }
 // });
 
-// function getCookie(){
+// // function getCookie(){
 
-//     alert(windows.location)    
-//     token = localStorage.getItem('token'); 
-//     console.log("tried ot get token ", token); 
+// //     alert(windows.location)    
+// //     token = localStorage.getItem('token'); 
+// //     console.log("tried ot get token ", token); 
 
-//     if (!token){
-//         token = document.getElementById('products').getAttribute('name');
-//         document.getElementById('products').setAttribute('name', '');
-//         console.log("setting token", token);
-//         localStorage.setItem('token', token);
-//     }
-//     else if (token) {
-//        setTimeout(() => {
-//         getCustomerData();
-//        }, 1000);
+// //     if (!token){
+// //         token = document.getElementById('products').getAttribute('name');
+// //         document.getElementById('products').setAttribute('name', '');
+// //         console.log("setting token", token);
+// //         localStorage.setItem('token', token);
+// //     }
+// //     else if (token) {
+// //        setTimeout(() => {
+// //         getCustomerData();
+// //        }, 1000);
         
-//     }
-// }
+// //     }
+// // }
 
-// function getCustomerData(){
+// // function getCustomerData(){
     
-//      token = localStorage.getItem('token');
-//      console.log("getting token from loaclStorage", token); 
-//      if(token){  
-//     $.ajax({
-//         type: "GET",
-//         beforeSend: function(request) {
-//             request.setRequestHeader("Authorization", 'bearer '+token);
-//           },
-//         url: "/customer",
-//         contentType : "application/json"
-//     }).done(function (data) {
-//         console.log(data);
-//     });
-// } else 
-//     console.log("error getting cookie");
-// }
+// //      token = localStorage.getItem('token');
+// //      console.log("getting token from loaclStorage", token); 
+// //      if(token){  
+// //     $.ajax({
+// //         type: "GET",
+// //         beforeSend: function(request) {
+// //             request.setRequestHeader("Authorization", 'bearer '+token);
+// //           },
+// //         url: "/customer",
+// //         contentType : "application/json"
+// //     }).done(function (data) {
+// //         console.log(data);
+// //     });
+// // } else 
+// //     console.log("error getting cookie");
+// // }

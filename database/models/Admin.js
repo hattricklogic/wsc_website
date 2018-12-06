@@ -12,27 +12,26 @@ Description: This module contains the database schema rules
 import mongoose from 'mongoose';
 // import bcrypt from 'bcrypt-nodejs';
 
-var RegistrationSchema = new mongoose.Schema({
+var AdminSchema = new mongoose.Schema({
   fname: { type: String, required: true, minlength: 3 },
   lname: { type: String, required: true, minlength: 4 },
   password: { type: String, required: true },
   email : { type: String, required: true},
-  role: [{type: String, default: "customer"}],
-  manager: {type: Boolean},
-  orders: [String]
+  user: {type: String}, 
+  role: {type: String}
 });
 
 // Static methods that can be called from anywhere (e.g., User.passwordMatches)
-// RegistrationSchema.statics.passwordMatches = function(password, hash) {
+// AdminSchema.statics.passwordMatches = function(password, hash) {
 //   return bcrypt.compareSync(password, hash);
 // }
 
 // Runs validation before saving a user
-// RegistrationSchema.pre('save', next => {
+// AdminSchema.pre('save', next => {
 
 //     const unsafePassword = password;
 //     password = bcrypt.hashSync(unsafePassword); // Will encrypt the user's password
 //     next();
 // });
 
-export default mongoose.model('register', RegistrationSchema);
+export default mongoose.model('admin', AdminSchema);

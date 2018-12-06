@@ -1,16 +1,17 @@
 <h1>Pending Orders  </h1>
 
   
-       {{#each user}}
+       {{#each orders}}
         <form action="/register/edit/{{id}}?_method=DELETE" method="POST">
-            <span>{{fname}}</span> 
-            <span>{{lname}}</span> 
-            <span>{{email}}</span> 
+            <span>{{product}}</span> 
+            <span>{{price}}</span> 
+            <span>{{type}}</span> 
             <a href="/register/edit/{{id}}">Edit</a>
             <input type="hidden" name='_method' value='DELETE'>
             <input type="submit" value="Approve">
         </form>
         
 {{else}}
+
     <span> No Profiles Created </span>
 {{/each}}

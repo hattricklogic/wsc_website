@@ -1,0 +1,28 @@
+<section class="admin-user">
+    <h1>Add New Team Member</h1>
+    <form action="/admin/new" method='POST'>
+        <section class="form-container">
+        <hr>
+        <label for="firstName">First Name </label>
+        <input type="text"  name='firstName' id='firstName' required> 
+
+        <label for="lastName">Last Name </label>
+        <input type="text"  name='lastName'id='lastName' required> 
+
+        <label for="email">Work Email </label>
+        <input type="email"  name='email' id='email' required> 
+
+        <label for="password">Password </label>
+        <input type="password"  name='password' id='password' required> 
+
+        <label for="empType">Employee Type </label>
+        <select  name='employee' id='employee' required> 
+            <option value="Employee">Employee</option>
+            <option value="Manager">Manager</option>
+        </select>
+        <button type='submit' id='admin-btn'>Submit</button>
+    
+        </section>
+    </form>
+</section>
+  
