@@ -14,13 +14,14 @@ import mongoose from 'mongoose';
 var OrdersSchema = new mongoose.Schema({
   product: { type: String },
   price: { type: String },
-  desc: { type: String },
+  msg: { type: String },
   user : { type: String},
   type: { type: String },
   sweater: {type: String },
   tshirt: {type: String },
   trophy: {type: String }, 
   gender: { type: String },
+  manager: {type: Boolean},
   date: {type: Date, defalut: Date.now}
 });
 

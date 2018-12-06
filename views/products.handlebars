@@ -1,12 +1,13 @@
 <h1>All Products</h1>
 <section id="allProducts">
-   <h6>{{user.email}}</h6>
+  
    <ul class='products product-items'>
       {{#each products}}
+        
       {{#if plaque}}
       <section>
          {{!-- <form action="/orders/{{id}}?_method=PUT" method='POST'> --}}
-            <form action="/orders/{{id}}" method='POST'>
+            <form action="/orders/{{id}}" method='GET'>
                <li>
                   <img src="/imgs/Plaque/{{product}}.jpg" alt="">
                   {{!-- <input type="hidden" name='_method' value='PUT'> --}}
@@ -21,11 +22,11 @@
       {{#if sweater}}
       <section>
          {{!-- <form action="/orders/{{id}}?_method=PUT" method='POST'> --}}
-            <form action="/orders/{{id}}" method='POST'>
+            <form action="/orders/{{id}}" method='GET'>
                <li>
                   <img src="/imgs/Sweatshirts/{{sweater}}_{{product}}.jpg" alt="">
                   {{!-- <input type="hidden" name='_method' value='PUT'> --}}
-                  <input type='hidden' name='choice' value={{product}}>
+                  <input type='hidden' name='choice' value=`{{sweater}} {{product}}` >
                   <input type="submit" class='productBtn' value="Order">
                </li>
             </form>
@@ -36,11 +37,11 @@
       {{#if tshirt}}
       <section>
          {{!-- <form action="/orders/{{id}}?_method=PUT" method='POST'> --}}
-            <form action="/orders/{{id}}" method='POST'>
+            <form action="/orders/{{id}}" method='GET'>
                <li name=>
                   <img src="/imgs/T_shirts/{{tshirt}}_{{product}}.jpg" alt="">
                   {{!-- <input type="hidden" name='_method' value='PUT'> --}}
-                  <input type='hidden' name='choice' value={{product}}>
+                  <input type='hidden' name='choice' value={{tshirt}} {{product}}>
                   <input type="submit" class='productBtn' value="Add To Cart">
                </li>
             </form>
@@ -50,11 +51,11 @@
       {{#if trophy}}
       <section>
          {{!-- <form action="/orders/{{id}}?_method=PUT" method='POST'> --}}
-            <form action="/orders/{{id}}" method='POST'>
+            <form action="/orders/{{id}}" method='GET'>
                <li>
                   <img src="/imgs/Trophy/{{product}}_{{gender}}.jpg" alt="">
                   {{!-- <input type="hidden" name='_method' value='PUT'> --}}
-                  <input type='hidden' name='choice' value={{product}}>
+                  <input type='hidden' name='choice' value={{product}} {{gender}}>
                   <input type="submit" class='productBtn' value="Add To Cart">
                </li>
 

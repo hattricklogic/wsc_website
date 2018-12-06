@@ -15,10 +15,34 @@ html{
   
   
 }
-.nav-container ul{
+
+.nav-container ul {
   display:inline-flex;
   list-style: none; 
   margin-bottom: 5%; 
+}
+.order-form{
+  text-align: center; 
+  border: 5px solid ;
+  height: auto;
+  width: auto;
+  display: inline-flex;
+  margin: 0 0 3% 0;
+}
+.cust-info{
+  border: 1px solid;
+  text-align: center;
+  width: 40%
+}
+
+.order-info{
+border: 1px solid white;
+width: 40%;
+}
+
+.order-info, .cust-info{
+  margin: 5%; 
+  padding: 2%; 
 }
 
 #nav-container section{
@@ -54,18 +78,24 @@ label {
     margin: 1% 1% 3% -5%;
     display: inline-block;
     width: 250px;
-    text-align: right;
   }
+textarea{
+  position: relative;
+  height: 120px;
+  border-radius: 5px; 
+  width: 70%; 
+ }
+
  
-  input[type=text], input[type=password], 
-  input[type=number],  input[type=email], input[type=tel], select {
+input[type=text], input[type=password],
+input[type=number],  input[type=email], input[type=tel], select {
       height: 36px;
-      width: 25%;
+      width: 64%;
       border-radius: 5px;
       margin: 0 0 1% 0; 
       display: inline-block;
   }
-  .productBtn{
+.productBtn{
     height: 50px;
     width: 120px;
     border-radius: 11px;
@@ -85,7 +115,7 @@ label {
     color: #155724;
     font-size: large;
     box-shadow: 3px 3px 7px black;
-    margin: 0 0 0 61%;
+    margin: 0 0 0 47%;
   }
   
 

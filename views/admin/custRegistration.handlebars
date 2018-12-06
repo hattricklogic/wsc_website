@@ -1,0 +1,52 @@
+
+<h1>New Customer Registration</h1>
+<form action="/register/new" method='POST'>
+    <section class="order-form">
+        
+        <section class='cust-info'>
+
+            <label for="firstName">First Name </label>
+            <input type="text" name='firstName' id='firstName' required>
+
+            <label for="lastName">Last Name </label>
+            <input type="text" name='lastName' id='lastName' required>
+
+            <label for="email">Email </label>
+            <input type="email" name='email' id='email' required>
+
+        </section>
+
+        <section class='order-info'>
+
+            <label for="price">Price </label>
+            <input type="text" name='price' id='price'>
+
+
+            <label for="product">Product</label>
+            <select name='product' id='product'>
+                <option name='plaque' value="Plaque">Plaque</option>
+                <option name='sweater' value="Sweater">Sweater</option>
+                <option name='tshirt' value="Tshirt">T-Shirt</option>
+                <option name='trophy' value="Trophy">Trophy</option>
+            </select>
+            
+            <label for="qty">Quanity </label>
+            <input type='number' name='qty' id='qty' required>
+
+            <label for="job">Job </label>
+            <select name="job" id="job">
+                <option value="printing">Print</option>
+                <option value="engraving">Engraving</option>
+            </select>
+
+            <label for="msg" id='msg'>Message</label>
+            <textarea name='msg' cols="50" placeholder="Craft your message...">
+        </textarea>
+        </section>
+    </section>
+
+    <button type='submit' id='save-btn'>Create</button>
+
+
+</form>
+</section>

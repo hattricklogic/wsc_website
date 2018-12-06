@@ -56,7 +56,6 @@ app.use((req, res, next) => {
     res.locals.error_msg = req.flash("error_msg");
     res.locals.error = req.flash("error");
     res.locals.user = req.user || null;
-    res.locals.role = req.role || null;
     next();
 })
 
@@ -77,15 +76,23 @@ app.get('/products', (req, res) => {
             res.render('products', { products: products })
         })
 });
-app.get('/orders', auth.ensureAuthenticiated, (req, res) => {
 
+app.get('/orders', auth.ensureAuthenticiated, (req, res) => {
+    console.log(req.user.id);
     Orders.find({ user: req.user.id })
         .then(order => {
-            res.render("orders", { orders: order })
-        })
+            Register.findOne({ _id: req.user.id })
+                .then(user => {
+                    res.render("orders", {
+                        user: user,
+                        order: order,
+                    })
+                }).catch(err => console.log("Registration Error", err))
+
+        }).catch(err => console.log("Error getting Order ", err))
 });
 
-app.post('/orders/:id', auth.ensureAuthenticiated, (req, res) => {
+app.get('/orders/:id', auth.ensureAuthenticiated, (req, res) => {
 
     Products.findOne({ _id: req.params.id })
         .then(item => {
@@ -95,14 +102,35 @@ app.post('/orders/:id', auth.ensureAuthenticiated, (req, res) => {
                 type: req.body.choice,
                 user: req.user.id
             }
-            new Orders(order)
-                .save()
-                .then(orders => {
-                    res.render("orders", {orders: orders})
-                })
+            res.render('orders/new', { order: order });
         })
         .catch(err => console.log("Error updating Order", err));
 });
+
+app.get('/orders/new', (res, req, next) => {
+
+
+    res.render("orders/new")
+
+});
+
+app.post('/order/new/:id', (req, res) => {
+
+    const order = {
+        product: req.body.product,
+        price: req.body.price,
+        type: req.body.type,
+        job: req.body.job,
+        msg: req.body.msg,
+        user: req.user.id
+    }
+    console.log(order);
+    new Orders(order)
+        .save()
+        .then(orders => {
+            res.render("products", { orders: orders })
+        }).catch(err => console.log("Error with order", err))
+})
 
 app.get('/register/new', (req, res) => {
     res.render('register/new')
@@ -160,24 +188,39 @@ app.get('/locator', (req, res) => {
 });
 
 app.post('/locator', (req, res) => {
-    console.log(req.body);
+
     Register.find({ email: req.body.email })
         .then(customer => {
-            if (!customer){
-                req.flash("error_msg", "Email Already Registered!");
-                return res.render('findCusomer', {errors:errors});
+            if (!customer.email) {
+                const errors = 'Email Already Registered!';
+                // req.flash("error_msg", "Email Already Registered!");
+                return res.render('findCustomer', { errors: errors });
             }
-            res.render('findCustomer', { customer: customer })
-        }).catch(err => console.log("Search Error", err));
-});
+            const cust = customer 
+            Products.find({})
+                .then((products) => {
+
+                    res.render('findCustomer', {
+                        customer: cust,
+                        products: products
+                    })
+                })
+                .catch(err => console.log("Customer Locator Error", err));
+        })
+        .catch(err => console.log("Customer Locator Error", err));
+})
 
 app.get('/login', (req, res) => {
 
     res.render('auth/login')
 });
 
+app.get('/admin/custRegistration', (req, res) =>{
+
+    res.render('admin/custRegistration');
+})
+
 app.post('/login', (req, res, next) => {
-    console.log("login request ", req.body);
     passport.authenticate('local', {
         successRedirect: '/products',
         failureRedirect: '/login',
@@ -232,7 +275,7 @@ app.get('/register/edit/:id', (req, res) => {
         .then(user => res.render('register/edit', { user: user }))
 });
 
-app.get('/profile', (req, res)=>{
+app.get('/profile', (req, res) => {
     res.render('register/view');
 });
 

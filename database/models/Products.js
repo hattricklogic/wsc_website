@@ -9,7 +9,8 @@ var ProductsSchema = new mongoose.Schema({
   sweater: {type: String },
   tshirt: {type: String },
   trophy: {type: String }, 
-  gender: { type: String }
+  gender: { type: String }, 
+  job: {type: String}
 });
 
 

@@ -4,7 +4,7 @@
     <span class="navbar-toggler-icon"></span>
   </button>
   <div class="collapse navbar-collapse" id="navbarNav"> --}}
-
+      {{!-- <h4>{{user}}</h4> --}}
     <nav class='nav-container'>
       <ul class="ul-list">
         <li class="ul-li">
@@ -40,16 +40,18 @@
           <a class="li-link" href="/register/new">Register</a>
         </li>
 
-       
-
         {{/if}}
 
         {{#if user.role}}
         <li class="ul-li">
           <a class="li-link" href="/locator">Locator</a>
         </li>
+         {{/if}}
+
+         {{#if user.manager}}
         <li class="ul-li md">
           <a class="li-link" href="/pending">Pending Orders</a>
         </li>
         {{/if}}
+       
       </ul>
