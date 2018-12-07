@@ -188,24 +188,28 @@ app.get('/locator', (req, res) => {
 });
 
 app.post('/locator', (req, res) => {
-
+    var errors = '';
     Register.find({ email: req.body.email })
         .then(customer => {
-            if (!customer.email) {
-                const errors = 'Email Already Registered!';
-                // req.flash("error_msg", "Email Already Registered!");
-                return res.render('findCustomer', { errors: errors });
-            }
-            const cust = customer 
-            Products.find({})
-                .then((products) => {
 
-                    res.render('findCustomer', {
-                        customer: cust,
-                        products: products
+            if (!customer == []) {
+                const cust = customer
+                Products.find({})
+                    .then(products => {
+                        res.render('findCustomer', {
+                            customer: cust,
+                            products: products, 
+                            errors: errors
+                        });
                     })
-                })
-                .catch(err => console.log("Customer Locator Error", err));
+            }
+            if (customer) {
+                console.log("no customer")
+                errors = 'Email Already Registered!';
+                // req.flash("error_msg", "Email Already Registered!");
+                // res.render('findCustomer', { errors: errors });
+
+            }
         })
         .catch(err => console.log("Customer Locator Error", err));
 })
@@ -215,10 +219,42 @@ app.get('/login', (req, res) => {
     res.render('auth/login')
 });
 
-app.get('/admin/custRegistration', (req, res) =>{
+app.get('/admin/custRegistration', (req, res) => {
 
     res.render('admin/custRegistration');
-})
+});
+
+app.post('/admin/newCust', (req, res) => {
+
+    // Use Registration module to save customer name to database
+    // firstName, lastName, email, price, product, qty, job, msg
+    // User Order module to save users order to database
+    // NOTE: get _id: from Register module 
+    const user = new Register({
+        fname: req.body.firstName,
+        lname: req.body.lastName,
+        email: req.body.email,
+        password: req.body.password
+    });
+    user.save().then(() => {
+
+        const order = new Orders({
+            product: req.body.product,
+            price: req.body.price,
+            qty: req.body.qty,
+            job: req.body.job,
+            msg: req.body.msg,
+            user: req.body.email
+        })
+        order.save()
+            .then(order => {
+                console.log("new user and order created ");
+                res.render("orders", { order: order });
+            })
+            .catch(err => console.log("Error Creating Order ", err))
+    })
+        .catch(err => console.log("Error updating User", err))
+});
 
 app.post('/login', (req, res, next) => {
     passport.authenticate('local', {

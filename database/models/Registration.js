@@ -15,7 +15,7 @@ import mongoose from 'mongoose';
 var RegistrationSchema = new mongoose.Schema({
   fname: { type: String, required: true, minlength: 3 },
   lname: { type: String, required: true, minlength: 4 },
-  password: { type: String, required: true },
+  password: { type: String },
   email : { type: String, required: true},
   role: [{type: String, default: "customer"}],
   manager: {type: Boolean},
