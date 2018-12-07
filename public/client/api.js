@@ -1,13 +1,38 @@
-// // /*
-// // Author: Rob Thomas 
-// // Created: Nov 22, 2018 
-// // Module: Client-side API  
+ /*
+Author: Rob Thomas 
+Created: Nov 22, 2018 
+Module: Client-side API  
 
-// // Description: This is a client side api used to create  
-// //              and update the product list for the site.
-// //              This will allow user to add items to a cart, 
-// //              essentially staging items for purchasing later.  
-// // */ 
+Description: This is a client side api used to create  
+             and update the product list for the site.
+             This will allow user to add items to a cart, 
+             essentially staging items for purchasing later.  
+ */ 
+
+var Total = 0.00;
+
+$(function () {
+    $( "#price, #qty" ).blur(() => {
+            let total = $("#price").val() * $("#qty").val();
+            Total = parseFloat(total); 
+            $("#total").text("$" + parseFloat(total).toFixed(2));
+      });
+
+      $( "#paymentType" ).change(() => {
+
+        pymt = $("#paymentType").val();
+          
+          if (pymt === "COD"){
+            let total_ = Total * .10; 
+            total_ = Total + total_;
+            console.log(total_);
+            $("#total").text("$" + parseFloat(total_).toFixed(2));
+          } else {
+            $("#total").text("$" + parseFloat(Total).toFixed(2));
+          }
+        
+      });
+})
 
 // $(function () {
     

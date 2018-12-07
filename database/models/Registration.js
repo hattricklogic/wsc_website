@@ -17,6 +17,10 @@ var RegistrationSchema = new mongoose.Schema({
   lname: { type: String, required: true, minlength: 4 },
   password: { type: String },
   email : { type: String, required: true},
+  address: { type: String},
+  city: { type: String},
+  state: { type: String},
+  zip: { type: String},
   role: [{type: String, default: "customer"}],
   manager: {type: Boolean},
   orders: [String]

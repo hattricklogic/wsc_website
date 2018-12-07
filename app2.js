@@ -153,6 +153,10 @@ app.post('/admin/new', (req, res) => {
                     fname: req.body.firstName,
                     lname: req.body.lastName,
                     email: req.body.email,
+                    address: req.body.address,
+                    city: req.body.city,
+                    state: req.body.state,
+                    zip: req.body.zip,
                     password: req.body.password,
                     role: req.body.employee
                 });
@@ -234,7 +238,11 @@ app.post('/admin/newCust', (req, res) => {
         fname: req.body.firstName,
         lname: req.body.lastName,
         email: req.body.email,
-        password: req.body.password
+        password: req.body.password,
+        address: req.body.address,
+        city: req.body.city,
+        state: req.body.state,
+        zip: req.body.zip
     });
     user.save().then(() => {
 
@@ -285,7 +293,12 @@ app.post('/register/new', (req, res) => {
                     fname: req.body.firstName,
                     lname: req.body.lastName,
                     email: req.body.email,
-                    password: req.body.password
+                    password: req.body.password,
+                    address: req.body.address,
+                    city: req.body.city,
+                    state: req.body.state,
+                    zip: req.body.zip
+                    
                 });
 
                 bcrypt.genSalt(10, (err, salt) => {
