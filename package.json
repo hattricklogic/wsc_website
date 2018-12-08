@@ -4,7 +4,7 @@
   "description": "Devry Project 2018",
   "main": "app2.js",
   "scripts": {
-    "start": "node app2.js",
+    "start": "babel-node app2.js",
     "dev": "nodemon --exec babel-node app2.js"
   },
   "author": "R. Thomas",
