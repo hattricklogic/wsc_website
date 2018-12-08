@@ -156,7 +156,7 @@ app.post('/admin/new', (req, res) => {
                     city: req.body.city,
                     state: req.body.state,
                     zip: req.body.zip,
-                    password: req.body.password,
+                    password: "password",
                     role: req.body.employee
                 });
 
