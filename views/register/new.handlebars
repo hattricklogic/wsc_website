@@ -3,7 +3,7 @@
     <form action="/register/new" method='POST'>
          <section class="order-form">
 
-        <section class='cust-info cust-reg'>
+        <section class='cust-info cust-reg new-reg brdr'>
 
             <label for="firstName">First Name </label>
             <input type="text" name='firstName' id='firstName' required>
@@ -14,8 +14,9 @@
             <label for="email">Email </label>
             <input type="email" name='email' id='email' required>
 
-            <fieldset class='billing'>
-                <legend> Billing Infomation</legend>
+            <label for="password">Password </label>
+            <input type="password" name='password' id='password' required>
+            <section class='addr'> 
                 <label for="address">Address</label>
                 <input type="text" name='address' id='address' required>
 
@@ -27,11 +28,34 @@
 
                 <label for="zip">Zip</label>
                 <input type="text" name='zip' id='zip' required>
+                <br>
+                <br>
+                
+            </section>
+
+            <section id='sam' class='sam'>
+                 <input type="checkbox" id='cb' name="sameAddr" value="sam">Same As Mailing
+            </section>
+           
+
+            <fieldset class='billing billing1'>
+                <legend> Billing Infomation</legend>
+                <label for="baddress">Address</label>
+                <input type="text" name='baddress' id='baddress' required>
+
+                <label for="bcity">City</label>
+                <input type="text" name='bcity' id='bcity' required>
+
+                <label for="bstate">State</label>
+                <input type="text" name='bstate' id='bstate' required>
+
+                <label for="bzip">Zip</label>
+                <input type="text" name='bzip' id='bzip' required>
 
             </fieldset>
 
         </section>
-        <button type='submit' id='save-btn'>Register</button>
+        <button type='submit' id='newReg-btn'>Register</button>
     </form>
 </section>
   

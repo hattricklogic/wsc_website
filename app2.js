@@ -132,9 +132,6 @@ app.post('/order/new/:id', (req, res) => {
         }).catch(err => console.log("Error with order", err))
 })
 
-app.get('/register/new', (req, res) => {
-    res.render('register/new')
-});
 
 app.get('/admin/new', (req, res) => {
     res.render('admin/new')
@@ -208,11 +205,7 @@ app.post('/locator', (req, res) => {
                     })
             }
             if (customer) {
-                console.log("no customer")
-                errors = 'Email Already Registered!';
-                // req.flash("error_msg", "Email Already Registered!");
-                // res.render('findCustomer', { errors: errors });
-
+                errors = 'Email Not Registered!';
             }
         })
         .catch(err => console.log("Customer Locator Error", err));
@@ -278,9 +271,13 @@ app.get('/logout', function (req, res) {
     res.redirect('/');
 });
 
+app.get('/register/new', (req, res) => {
+    res.render('register/new')
+});
+
 app.post('/register/new', (req, res) => {
 
-
+    console.log("req.body ", req.body);
     Register.findOne({ email: req.body.email })
         .then(user => {
 

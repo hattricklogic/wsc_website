@@ -17,9 +17,22 @@ html{
 .cust-reg{
   position: relative;
   left: 22%;  
-
 }
 
+.new-reg{
+  left: 10%;
+}
+
+#newReg-btn{
+  position: relative;
+  top: 690px;
+  left: -220px;
+}
+.addr{
+  position: relative;
+  left: 100%;
+  top: -240px;
+}
 .header{
   position: relative;
   left: 22%; 
@@ -54,6 +67,20 @@ html{
 .billing{
   margin-top: 5%;
 }
+.billing1{
+  
+  margin-top: 5%;
+  position: relative;
+  top: -32%;
+  left: 18%;
+  width: 162%;
+}
+
+.sam{
+  position: relative;
+  top: -30%;
+  width: 145px;
+}
 #paymentType{
   margin: 5%;
 }
@@ -61,6 +88,10 @@ html{
 .order-info{
 border: 1px solid white;
 width: 40%;
+}
+
+.brdr{
+  border: none;
 }
 
 label#msg{

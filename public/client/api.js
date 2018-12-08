@@ -18,7 +18,7 @@ $(function () {
             $("#total").text("$" + parseFloat(total).toFixed(2));
       });
 
-      $( "#paymentType" ).change(() => {
+      $( "#paymentType, #cb" ).change(() => {
 
         pymt = $("#paymentType").val();
           
@@ -31,7 +31,12 @@ $(function () {
             $("#total").text("$" + parseFloat(Total).toFixed(2));
           }
         
+        console.log("#cb")
       });
+
+      // $( "#cb" ).change(() => {
+      //   console.log("checkbox");
+      // });
 })
 
 // $(function () {
