@@ -14,10 +14,12 @@ import Admin from './database/models/Admin'
 import Orders from './database/models/Orders'
 import authorize from './conf/passport'
 import auth from './utilities/auth'
+import dbconf from './conf/database'
 // TODO: move this to a external file 
 // This is our database connection
+
 mongoose.Promise = global.Promise;
-mongoose.connect('mongodb://localhost:27017/Devry', {
+mongoose.connect(dbconf.mongoURI, {
     useNewUrlParser: true
 })
     .then(() => console.log("MongoDB connected!"))
@@ -25,7 +27,7 @@ mongoose.connect('mongodb://localhost:27017/Devry', {
 
 // Invoke the express app 
 const app = express();
-
+const port = process.env.PORT || 8000;
 // Set static folder for client machine 
 app.use(express.static(path.join(__dirname, 'public')));
 
@@ -351,4 +353,4 @@ app.delete('/register/edit/:id', (req, res) => {
         })
 });
 
-app.listen(8000, () => console.log("listening at http://localhost:8000"));
+app.listen(port, () => console.log("listening at http://localhost:8000"));

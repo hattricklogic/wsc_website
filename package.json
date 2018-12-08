@@ -4,7 +4,7 @@
   "description": "Devry Project 2018",
   "main": "app2.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app2.js",
     "dev": "nodemon --exec babel-node app2.js"
   },
   "author": "R. Thomas",
