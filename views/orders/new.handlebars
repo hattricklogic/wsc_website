@@ -1,11 +1,9 @@
 <h1>New Order </h1>
 
-<section class="order-user">
+<section class="user-orderForm">
 
-    {{!-- <form action="/order/new/{{user.id}}?_method=PUT" method='POST'> --}}
     <form action="/order/new/{{user.id}}" method='POST'>
-        {{!-- <input type="hidden" name='_method' value='PUT'> --}}
-        <section class="form-container">
+        <section class="form-container order-info">
         <hr>
         <label for="product">Product </label>
         <input type="text"  name='product' id='product' value={{order.product}} required> 
@@ -26,9 +24,9 @@
             <option value="printing" >Print</option>
             <option value="engraving">Engraving</option>
         </select>
-
+        <br>
         <label for="msg" id='msg'>Message</label>
-         <textarea name='msg' cols="50" placeholder="Craft your message...">
+         <textarea class='custMsg' name='msg' cols="50" placeholder="Craft your message...">
         </textarea>
 
         <button type='submit' id='save-btn'>Order</button>

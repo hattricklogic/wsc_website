@@ -18,9 +18,15 @@ html{
   position: relative;
   left: 22%;  
 }
-
+.user-orderForm{
+  position: relative;
+  left: 24%;
+}
 .new-reg{
   left: 10%;
+}
+.custMsg{
+  padding: 5%;
 }
 
 #newReg-btn{

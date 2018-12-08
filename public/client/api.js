@@ -31,7 +31,12 @@ $(function () {
             $("#total").text("$" + parseFloat(Total).toFixed(2));
           }
         
-        console.log("#cb")
+          checked = $("#cb").is(":checked");
+          if (checked){
+              $('.billing1').css("opacity", 0);
+          } else {
+            $('.billing1').css("opacity", 1);
+          }
       });
 
       // $( "#cb" ).change(() => {
