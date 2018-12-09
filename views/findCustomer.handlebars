@@ -1,13 +1,12 @@
 <h1>Customer Locator </h1>
-{{!-- <h6>products</h6>
-<p>{{products}}</p> --}}
-{{!-- <h6>customer</h6>
-<p>{{customer}}</p> --}}
+
 {{#if customer}}
 {{#each customer}}
-<section>
-    <form action="/register/new" method='POST'>
-        <section class="form-container">
+
+<form action="/register/new" method='POST'>
+    <section class="order-form">
+
+        <section class='cust-info'>
             <hr>
             <label for="firstName">First Name </label>
             <input type="text" name='firstName' id='firstName' value={{fname}} required>
@@ -18,47 +17,71 @@
             <label for="email">Email </label>
             <input type="email" name='email' id='email' value={{email}} required>
 
-            <label for="qty">Quanity </label>
-            <input type='text' name='qty' id='qty' required>
-               
-            <label for="price">Price </label>
-            <input type="text" name='price' id='price'>
+            <section id='sam1' class='sam1'>
+                <input type="checkbox" id='cb' name="sameAddr" checked>Same As Shipping
+                <br>
+                <br>
+            </section>
+            <fieldset class='billing billing-info'>
+                <legend> Billing Infomation</legend>
+                <label for="address">Address</label>
+                <input type="text" name='address' id='address' required>
 
-            <label for="product">Product</label>
-            <select name='product' id='product'>
-                <option name='plaque' value="Plaque">Plaque</option>
-                <option name='sweater' value="Sweater">Sweater</option>
-                <option name='tshirt' value="Tshirt">T-Shirt</option>
-                <option name='trophy' value="Trophy">Trophy</option>
-            </select>
+                <label for="city">City</label>
+                <input type="text" name='city' id='city' required>
 
-            <label for="job">Job </label>
-            <select name="job" id="job">
-                <option value="printing">Print</option>
-                <option value="engraving">Engraving</option>
-            </select>
+                <label for="state">State</label>
+                <input type="text" name='state' id='state' required>
 
-            <label for="msg" id='msg'>Message</label>
+                <label for="zip">Zip</label>
+                <input type="text" name='zip' id='zip' required>
+
+            </fieldset>
+
+        </section>
+
+        <section class='order-info'>
+            <section class='col'>
+                <label for="qty">Quanity </label>
+                <input type='text' name='qty' id='qty' required>
+                <label for="price">Price </label>
+                <input type="text" name='price' id='price'>
+
+                <label for="product">Product</label>
+                <select name='product' id='product'>
+                    <option name='plaque' value="Plaque">Plaque</option>
+                    <option name='sweater' value="Sweater">Sweater</option>
+                    <option name='tshirt' value="Tshirt">T-Shirt</option>
+                    <option name='trophy' value="Trophy">Trophy</option>
+                </select>
+
+                <label for="job">Job </label>
+                <select name="job" id="job">
+                    <option value="printing">Print</option>
+                    <option value="engraving">Engraving</option>
+                </select>
+            </section>
+            <label for="msg" class='msg' id='msg'>Message</label>
             <textarea name='msg' cols="50" placeholder="Craft your message...">
         </textarea>
 
-
-        <button type='submit' id='save-btn'>Order</button>
-
         </section>
-    </form>
-</section>
+    </section>
+
+    <button type='submit' id='register-btn'>Order</button>
+</form>
+
 {{else}}
-<h1> No Profile Found </h1>
+<h1 class='billing'> No Profile Found </h1>
 <a href="/admin/custRegistration">Register User</a>
 {{/each}}
 {{/if }}
-<h1>{{errors}}</h1>
+<h1 class='billing'>{{errors}}</h1>
 {{#if errors}}
-    <h1> No Profile Found </h1>
-    <a href="/admin/custRegistration">Register User</a>
+<h1 class='billing'> No Profile Found </h1>
+<a class='billing' href="/admin/custRegistration">Register User</a>
 {{/if}}
-<section class="edit-user">
+<section class="edit-user billing">
     <h1>Search by Email</h1>
 
     <form action="/locator" method='POST'>

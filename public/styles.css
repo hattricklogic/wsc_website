@@ -14,6 +14,9 @@ html{
   background: #FFE0B2;
 }
 
+.form-container{
+  width: 73%;
+}
 .cust-reg{
   position: relative;
   left: 22%;  
@@ -63,6 +66,8 @@ html{
   text-align: center;
   width: 40%
 }
+
+
 #price, #product, #qty, #job {
   width: 20%;
 }
@@ -72,6 +77,7 @@ html{
 }
 .billing{
   margin-top: 5%;
+  
 }
 .billing1{
   
@@ -87,6 +93,10 @@ html{
   top: -30%;
   width: 145px;
 }
+.billing-info{
+  display:none;
+}
+
 #paymentType{
   margin: 5%;
 }
@@ -95,6 +105,8 @@ html{
 border: 1px solid white;
 width: 40%;
 }
+
+
 
 .brdr{
   border: none;
@@ -108,6 +120,22 @@ padding: 2%;
   padding: 2%; 
 }
 
+/* .order-info2, .cust-info2{
+  width: 100%;
+  margin: 0%; 
+  padding: 0%;
+  border: none;
+} */
+
+/* .form-container{
+  width: 40%;
+} */
+
+/* .msg{
+  position: relative; 
+  top: -100px;
+} */
+
 .orders form{
       /* border-top: 3px; */
       border-top: 3px solid #fff;
@@ -118,6 +146,15 @@ padding: 2%;
       font-size: 22px;
 }
 
+/* section form {
+  position: relative;
+  left: 20%; 
+} */
+
+#cb{
+  width: 25px;
+  transform: scale(2)
+}
 #apprBtn{
   height: 50px;
   width: 120px;
