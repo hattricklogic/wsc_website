@@ -192,27 +192,39 @@ app.get('/locator', (req, res) => {
 
 app.post('/locator', (req, res) => {
     console.log(req.body)
+
     var errors = '';
     Register.find({ email: req.body.email })
         .then(customer => {
-
-            if (!customer == []) {
-                const cust = customer
-                Products.find({})
-                    .then(products => {
-                        res.render('findCustomer', {
-                            customer: cust,
-                            products: products, 
-                            errors: errors
-                        });
+            console.log(customer.length);
+            if (customer.length > 0) {
+    
+                res.render('findCustomer', {
+                    customer: customer,
+                    errors: errors
+                });
+            }          
+            if (customer.length < 1) {
+                console.log("finding by ID")
+                Register.find({ _id: req.body.email })
+                .then(user =>
+                    {
+                        console.log("user ", user)
+                        if (user.length > 0){
+                            
+                            res.render('findCustomer', {
+                                customer: user,
+                                errors: errors
+                            });
+                        }
+                        else {
+                            errors = 'Email Not Registered!';
+                        }
                     })
-            }
-            if (customer) {
-                errors = 'Email Not Registered!';
             }
         })
         .catch(err => console.log("Customer Locator Error", err));
-})
+}) // end post 
 
 app.get('/login', (req, res) => {
 
