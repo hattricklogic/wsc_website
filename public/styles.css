@@ -171,7 +171,19 @@ padding: 2%;
   margin-right: 10px; 
   color: #F57C00; 
 }
-  
+.about-container{
+  margin: 0% 18% 0;
+  font-size: 22px;
+}
+.about{
+  width: 100%;
+}
+
+.note{
+  width: 16%;
+  background: crimson;
+  padding: 2%;
+}
 .cart img {
   width: 50px;
   height: 50px;
