@@ -130,7 +130,7 @@ app.post('/order/new/:id', (req, res) => {
     new Orders(order)
         .save()
         .then(orders => {
-            res.render("products", { orders: orders })
+            res.redirect("/orders")
         }).catch(err => console.log("Error with order", err))
 })
 
