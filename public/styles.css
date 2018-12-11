@@ -120,30 +120,27 @@ padding: 2%;
   padding: 2%; 
 }
 
-/* .order-info2, .cust-info2{
-  width: 100%;
-  margin: 0%; 
-  padding: 0%;
-  border: none;
-} */
+.orderAppr{
+  position: relative;
+  left: 20%;
+  top: -95px;
+  /* margin-left: 57px !important; */
+}
 
-/* .form-container{
-  width: 40%;
-} */
-
-/* .msg{
-  position: relative; 
-  top: -100px;
-} */
-
+.orderEdit{
+  height: 50px;
+  width: 90px;
+  border-radius: 11px;
+  border-color: #d61818;
+    /* background: #c3e6cb; */
+  color: #155724;
+  font-size: large;
+  box-shadow: 3px 3px 7px black;
+  margin: 0% 0% -1% 0;
+}
 .orders form{
-      /* border-top: 3px; */
-      border-top: 3px solid #fff;
-      /* border-bottom: 3px solid red; */
-      height: 79px;
-      text-align: center;
-      margin: 7%;
-      font-size: 22px;
+    text-align: center;
+    font-size: 22px;
 }
 
 #cb{
@@ -179,6 +176,12 @@ padding: 2%;
   width: 100%;
 }
 
+.edit-user{
+  border: 2px inset;
+  width: 50%;
+  position: relative;
+  left: 24%;
+}
 .note{
   width: 16%;
   background: crimson;

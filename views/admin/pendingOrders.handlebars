@@ -1,14 +1,20 @@
 <h1>Pending Orders  </h1>
-
        {{#each orders}}
        <section class='orders'>
-        <form action="/register/edit/{{id}}?_method=DELETE" method="POST">
+        <form action="/locator" method="POST">
             <span>{{product}}</span> 
             <span>{{price}}</span> 
             <span>{{type}}</span> 
-            <a href="/register/edit/{{id}}">Edit</a>
+            <span>{{user}}</span>
+            {{!-- on edit find the user and populate the fields  --}}
+            <input type='hidden' name='email' value={{user}}>
+            <input type="submit" class='orderEdit' value="Edit">
+
+        </form>
+        <form action="/register/edit/{{id}}?_method=DELETE" method="POST">
+
             <input type="hidden" name='_method' value='DELETE'>
-            <input type="submit" id='apprBtn' value="Approve">
+            <input type="submit" class='orderAppr' id='apprBtn' value="Approve">
         </form>
 
        </section>

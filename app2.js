@@ -191,6 +191,7 @@ app.get('/locator', (req, res) => {
 });
 
 app.post('/locator', (req, res) => {
+    console.log(req.body)
     var errors = '';
     Register.find({ email: req.body.email })
         .then(customer => {
