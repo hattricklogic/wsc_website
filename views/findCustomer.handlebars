@@ -3,7 +3,7 @@
 {{#if customer}}
 {{#each customer}}
 
-<form action="/register/new" method='POST'>
+<form action="/admin/newCust" method='POST'>
     <section class="order-form">
 
         <section class='cust-info'>
@@ -25,18 +25,19 @@
             <fieldset class='billing billing-info'>
                 <legend> Billing Infomation</legend>
                 <label for="address">Address</label>
-                <input type="text" name='address' id='address' required>
+                <input type="text" name='address' id='address' >
 
                 <label for="city">City</label>
-                <input type="text" name='city' id='city' required>
+                <input type="text" name='city' id='city' >
 
                 <label for="state">State</label>
-                <input type="text" name='state' id='state' required>
+                <input type="text" name='state' id='state' >
 
                 <label for="zip">Zip</label>
-                <input type="text" name='zip' id='zip' required>
+                <input type="text" name='zip' id='zip' >
 
             </fieldset>
+           
 
         </section>
 
@@ -62,10 +63,18 @@
                 </select>
             </section>
             <label for="msg" class='msg' id='msg'>Message</label>
-            <textarea name='msg' cols="50" placeholder="Craft your message...">
+            <textarea name='msg' rows="5" cols="50" placeholder="Craft your message...">
         </textarea>
 
+        <br>
+            <br>
+            <br>
+            <br>
+            <span id="total">0.00</span>
+
         </section>
+
+            
     </section>
 
     <button type='submit' id='register-btn'>Order</button>
