@@ -2,10 +2,10 @@
   "name": "wsc_app",
   "version": "1.0.0",
   "description": "Devry Project 2018",
-  "main": "app2.js",
+  "main": "app.js",
   "scripts": {
-    "start": "babel-node app2.js",
-    "dev": "nodemon --exec babel-node app2.js"
+    "start": "babel-node app.js",
+    "dev": "nodemon --exec babel-node app.js"
   },
   "author": "R. Thomas",
   "license": "MIT",
